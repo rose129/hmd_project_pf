@@ -1,0 +1,10 @@
+a{
+    text-decoration: none;
+}
+li,ul,ol,dl{
+
+    list-style: none;
+}
+body{
+    background: #ccc;
+}
