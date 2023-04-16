@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+   {{ post.title }} - Blog
+{% endblock %}
+
+
+{% block content %}
+
+<!-- Page content-->
+<div class="container">
+    <div class="row">
+        <!-- Post content-->
+        <div class="col-lg-8" id="main-area">
+          <div id="post-area">
+            <!-- Title-->
+            <h1 class="mt-4">{{ post.title }}</h1>
+            <!-- Author-->
+            <p class="lead">
+                by
+                <a href="#!">{{ post.author | upper }}</a>
+            </p>
+            <hr />
+            <!-- Date and time-->
+            <p>Posted on _ {{ post.created_at|date:'Y년 m월 d일 H시i분' }}</p>
+            <hr />
+            <!-- Preview image-->
+            {% if post.head_image %}
+                <img class="img-fluid rounded con_img" src="{{ post.head_image.url }}" alt="{{ post.title }} head_image" />
+            {% else %}
+                <img class="img-fluid rounded" src="https://picsum.photos/id/{{ post.id }}/750/200" alt="random_image" />
+            {% endif %}
+            <hr />
+            <!-- Post content-->
+            <!-- {{ post.content | safe }} html태그 노출 방지-->
+            <p class="lead">{{ post.content | safe }}</p>
+
+            {% if post.file_upload %}
+
+              <a href="{{ post.file_upload.url }}" class="btn btn-outline-secondary" role="button" download>
+                  Download :
+                  
+                  {% if post.get_file_ext == 'csv' %}
+                      <i class="bi bi-filetype-csv"></i>
+                  {% elif post.get_file_ext == 'xlsx' %}
+                      <i class="bi bi-filetype-xlsx"></i>
+                  {% elif post.get_file_ext == 'xls' %}
+                      <i class="bi bi-filetype-xls"></i>
+                  {% elif post.get_file_ext == 'word' %} 
+                      <i class="bi bi-file-word"></i>
+                  {% elif post.get_file_ext == 'jpg' %} 
+                      <i class="bi bi-filetype-jpg"></i>
+                  {% elif post.get_file_ext == 'pdf' %} 
+                      <i class="bi bi-filetype-pdf"></i>
+                  {% elif post.get_file_ext == 'png' %} 
+                      <i class="bi bi-filetype-png"></i>
+                  {% elif post.get_file_ext == 'svg' %} 
+                      <i class="bi bi-filetype-svg"></i>
+                  {% elif post.get_file_ext == 'txt' %}
+                      <i class="bi bi-filetype-txt"></i>
+                  {% else%}
+                      <i class="bi bi-files"></i>
+                  {% endif%}
+                  {{ post.get_file_name }}
+                </a>
+
+              {% endif %}
+          </div>
+          <hr>
+
+           
+            <!-- Comments form-->
+            <div class="card my-4">
+                <h5 class="card-header">Leave a Comment:</h5>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group"><textarea class="form-control" rows="3"></textarea></div>
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Single comment-->
+            <div class="media mb-4">
+                <img class="d-flex mr-3 rounded-circle" src="https://via.placeholder.com/50x50" alt="..." />
+                <div class="media-body">
+                    <h5 class="mt-0">Commenter Name</h5>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                </div>
+            </div>
+            <!-- Comment with nested comments-->
+            <div class="media mb-4">
+                <img class="d-flex mr-3 rounded-circle" src="https://via.placeholder.com/50x50" alt="..." />
+                <div class="media-body">
+                    <h5 class="mt-0">Commenter Name</h5>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                    <div class="media mt-4">
+                        <img class="d-flex mr-3 rounded-circle" src="https://via.placeholder.com/50x50" alt="..." />
+                        <div class="media-body">
+                            <h5 class="mt-0">Commenter Name</h5>
+                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        </div>
+                    </div>
+                    <div class="media mt-4">
+                        <img class="d-flex mr-3 rounded-circle" src="https://via.placeholder.com/50x50" alt="..." />
+                        <div class="media-body">
+                            <h5 class="mt-0">Commenter Name</h5>
+                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Sidebar widgets column-->
+        {% include 'blog/side_widgets.html' %} 
+    </div>
+</div>
+{% endblock %}
