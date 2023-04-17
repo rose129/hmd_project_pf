@@ -11,9 +11,12 @@ li,ul,ol,dl{
     list-style: none;
     margin: 0;
 }
-body{
-    background: #e7d9cd;
+td> input{
+    width: 100%;
 }
+/* body{
+    background: #e7d9cd;
+} */
 header{
     height: 100px;
     font-size: 1.2em;
@@ -28,7 +31,9 @@ nav.navbar{
 nav button > span{
     line-height: 30px;
 }
-
+.tag{
+    display: inline-block;
+}
 #navbarNavDropdown .nav_mid{
     height: 40px;
 }
@@ -68,6 +73,43 @@ nav button > span{
 }
 #navbarNavDropdown .nav_side .dropdown-menu.show a:hover{
     background-color: rgb(255, 229, 233)
+}
+.category a:hover{
+    color: #ccc;
+}
+.form-control:focus{
+    box-shadow: none !important;
+    border-color: #ccc !important;
+}
+
+/* blog list */
+
+.b_title{
+    justify-content: space-between;
+}
+.b_title{
+    height: 35px;
+}
+.b_title a{
+    line-height: 20px;
+    outline: none;
+}
+.b_title span{
+    font-size: 1rem;
+    line-height: 20px;
+}
+
+/* blog post detail */
+
+.pd_mid p{
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin: 0;
+}
+.pd_ctg a{
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 /* button */

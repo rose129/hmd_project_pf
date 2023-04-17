@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Edit Post  - Blog
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-center">Edit Post</h1>
+    </hr>
+    <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+
+        <table style="margin: 0 auto;">
+            {{ form }}
+             <!-- 사용자가 태그를 입력할 수 있도록 입력창 구현 -->
+             <tr>
+                <th>
+                    <label for="id_tags_str">Tags:</label>
+                </th>
+                <td>
+                    <input type="text" name="tags_str" id="id_tags_str" value="{{ tags_str_default }}">
+                </td>
+            </tr>
+        </table>
+        <div class="p_btn text-center">
+            <button type="submit" class="btn btn-outline-dark">
+                확인
+            </button>
+        </div>
+    </form>
+{% endblock %}
