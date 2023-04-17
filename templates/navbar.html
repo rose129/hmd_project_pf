@@ -36,16 +36,16 @@
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                           {{ user.username }}
                         </a>
-                        <div class="dropdown-menu p-0" style="transform: translateX(-50%);
+                        <div class="dropdown-menu" style="transform: translateX(-50%);
                         left: 50%;">
-                          <a class="dropdown-item p-2 text-center" href="/accounts/logout/">LOGOUT</a>
+                          <a class="dropdown-item p-0 text-center" href="/accounts/logout/">LOGOUT</a>
                         </div>
                       </li>
                     {% else %}
-                    <li class="nav-item">
+                    <li class="nav-item login_btn">
                         <!-- modal 클릭 이벤트 요소 -->
                         <a class="nav-link" href="#"  data-toggle="modal" data-target="#exampleModal">
-                            LOGIN
+                          Sigh In
                             <i class="bi bi-box-arrow-in-right"></i>
                         </a>
                     </li>
@@ -64,7 +64,7 @@
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">
             <i class="bi bi-person"></i>
-            LOGIN
+            Sigh In
           </h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>

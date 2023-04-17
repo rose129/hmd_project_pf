@@ -12,6 +12,7 @@ from .forms import PostForm
 
 # Create your views here.
 
+# Post list 
 class PostList(ListView):
     model = Post
     ordering = '-pk'
@@ -26,7 +27,7 @@ class PostList(ListView):
         context['no_category_post_count'] = Post.objects.filter(category=None).count()
 
         return context
-
+# post detail
 class PostDetail(DetailView):
     model = Post
 
@@ -98,10 +99,8 @@ class PostCreate(LoginRequiredMixin, UserPassesTestMixin, CreateView):
 # PostUpdate() 클래스로 CBV형식의 view 작성 
 class PostUpdate(LoginRequiredMixin, UpdateView):
     model = Post
-
     # Update Form을 django 라이브러리인 summernote로 구현
     form_class = PostForm
-    # fields = ['title','hook_text','content','head_image','file_upload','category','tags']
 
     template_name = 'blog/post_update_form.html'
 

@@ -27,19 +27,18 @@
                     {% else %}
                     <span class="badge badge-dark float-right p-1" >미분류</span>
                 </div>
-                {% endif %}
+                    {% endif %}
                 
                 <a href="#!">작성자: {{ post.author | upper }}</a>
             </div>
             <hr />
            
-
             <div class="pd_mid">
                 <!-- Date and time-->
                 <p>Posted on _ {{ post.created_at|date:'Y년 m월 d일 H시i분' }}</p>
                 <!-- 글을 작성한 사람만 수정가능 -->
                {% if user.is_authenticated and user == post.author %}
-                <a role="button" class="btn btn-outline-dark ml-2 float-right" href="/blog/update_post/{{ post.pk }}/">
+                <a role="button" class="btn btn-outline-dark" href="/blog/update_post/{{ post.pk }}/">
                     <i class="bi bi-pencil"></i>
                     Edit Post
                 </a>
@@ -148,7 +147,7 @@
             </div>
         </div>
         <!-- Sidebar widgets column-->
+        {% include 'blog/side_widgets.html' %} 
     </div>
-    {% include 'blog/side_widgets.html' %} 
 </div>
 {% endblock %}
