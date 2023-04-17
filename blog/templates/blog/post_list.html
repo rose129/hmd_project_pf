@@ -9,7 +9,7 @@
 {% block content %}    
 <!-- Page content-->
 <div class="container">
-    <div class="row" >
+    <div class="row list_main" >
         <!-- Blog entries-->
         <div class="col-lg-8" id="main-area">
             <h1 class="my-4 d-flex b_title">
@@ -40,6 +40,11 @@
                 {% else %}
                 <img class="card-img-top" src="https://picsum.photos/id/{{ p.id }}/750/350" alt="random_image" />
                 {% endif %}
+                <div class="card-footer text-muted">
+                    {{ p.created_at|date:'Y년 m월 d일 H시i분' }} -
+                    <!-- 작성자 들어갈 곳 -->
+                    <a href="#">{{ p.author | upper }}</a>
+                </div>
                 <div class="card-body">
                     {% if p.category %}
                         <span class="badge badge-dark float-right p-1">{{ p.category }}</span>                   
@@ -71,11 +76,7 @@
                         <a class="btn" href="{{ p.get_absolute_url }}/">Read More →</a>
                     </div>
                 </div>
-                <div class="card-footer text-muted">
-                    {{ p.created_at|date:'Y년 m월 d일 H시i분' }} -
-                    <!-- 작성자 들어갈 곳 -->
-                    <a href="#">{{ p.author | upper }}</a>
-                </div>
+               
             </div>
             {% endfor %}
         {% else%}

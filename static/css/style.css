@@ -83,6 +83,9 @@ nav button > span{
 }
 
 /* blog list */
+.list_main{
+    justify-content: space-between;
+}
 
 .b_title{
     justify-content: space-between;
@@ -98,7 +101,12 @@ nav button > span{
     font-size: 1rem;
     line-height: 20px;
 }
-
+.card-footer{
+    font-size: 0.8rem;
+    font-weight: 600;
+    background-color: white;
+    border-bottom: 1px solid #ccc
+}
 /* blog post detail */
 
 .pd_mid p{
@@ -111,7 +119,10 @@ nav button > span{
     font-size: 1rem;
     font-weight: 600;
 }
-
+/* side_widgets */
+.side_widgets{
+    margin-top: 50px;
+}
 /* button */
 
 .p_button{ 
