@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     # google email
     'allauth.socialaccount.providers.google',
+     # kakao
+    'allauth.socialaccount.providers.kakao',
 
 
 ]
@@ -183,7 +185,8 @@ SOCIALACCOUNT_AUTO_SIGNUP=True
 
 
 LOGIN_REDIRECT_URL = '/'
-ACCOUNT_LOGOUT_REDIRECT_URL = "/" 
+ACCOUNT_LOGOUT_REDIRECT_URL = "/"
+ACCOUNT_LOGOUT_ON_GET = True  
 
 
 # CRISPY
