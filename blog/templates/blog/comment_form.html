@@ -4,14 +4,16 @@
     Edit Comment - Blog
 {% endblock %}
 
-{% block main_area %}
+{% block content %}
+<div class="container">
     <h1 class="text-center">Edit Comment</h1>
     </hr>
-    <form  method="post" id="comment-form">{% csrf_token %}
+    <form method="post" id="comment-form">{% csrf_token %}
             {{ form | crispy }}
         <br>
-        <button type="submit" class="btn btn-outline-success float-right">
+        <button type="submit" class="btn btn-outline-dark float-right">
             확인
         </button>
     </form>
+</div>
 {% endblock %}
