@@ -5,10 +5,10 @@ class ArticleAdmin(admin.ModelAdmin):
     fieldsets = [
         ('제목',{'fields':['title']}),
         ('내용',{'fields':['contents']}),
-        ('작성자 정보',{'fields':["name", "url", "email"]}),
+        ('작성자 정보',{'fields':["name", "email"]}),
         ('작성자 id', {'fields':['owner'],'classes':['collapse']}),
     ]
-    list_display = ('pk','title','url','cdate')
+    list_display = ('pk','title','cdate')
     list_filter = ['cdate']
     search_fields = ['title','contents']
 

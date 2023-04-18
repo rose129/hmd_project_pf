@@ -7,7 +7,6 @@ class Article(models.Model):
     name = models.CharField( max_length = 20 )
     title = models.CharField( max_length = 50)
     contents = models.TextField()
-    url = models.URLField()
     email = models.EmailField()
     cdate = models.DateTimeField( auto_now_add = True )
     mdate = models.DateTimeField( auto_now = True )

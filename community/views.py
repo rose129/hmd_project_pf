@@ -4,6 +4,7 @@ from django.views.generic import ListView, DetailView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from .models import Article
+from .forms import Form
 # Create your views here.
 
 # def Community(request):
@@ -11,7 +12,8 @@ from .models import Article
 
 class WriteFormView(LoginRequiredMixin, CreateView):
     model = Article
-    fields = ["name", "title", "contents", "url", "email"]
+    form_class = Form
+    # fields = ["name", "title", "contents", "email"]
     template_name = 'community/write.html'
     success_url = reverse_lazy('community:list')
 
