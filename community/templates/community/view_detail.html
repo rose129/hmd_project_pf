@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block style %} 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+{% endblock  %}
+
+<!-- head의 타이틀 -->
+{% block title %} view_detail {% endblock %}
+
+{% block content %} 
+<!-- views.py CVB방식으로 세부 내용 넘길때 -->
+<!-- object 또는 article 클래스_이름으로 데이터 넘김 -->
+<!-- {{ article }} -->
+
+<table>
+    <tr>
+        <td>no.</td>
+        <td>{{ article.id }}</td>
+    </tr>
+    <tr>
+        <td>제목</td>
+        <td>{{ article.title }} </td>
+    </tr>
+    <tr>
+        <td>내용</td>
+        <td>{{ article.contents }}</td>
+    </tr>
+    <tr>
+        <td>이름</td>
+        <td>{{ article.name }}</td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td>{{ article.email }}</td>
+    </tr>
+    <tr>
+        <td>작성일</td>
+        <td>{{ article.cdate }}</td>
+    </tr>
+</table>
+
+
+{% endblock %}

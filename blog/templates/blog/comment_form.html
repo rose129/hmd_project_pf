@@ -11,9 +11,11 @@
     <form method="post" id="comment-form">{% csrf_token %}
             {{ form | crispy }}
         <br>
-        <button type="submit" class="btn btn-outline-dark float-right">
-            확인
-        </button>
+        <div class="form_btn">
+            <button type="submit" class="btn btn-outline-dark float-right">
+                확인
+            </button>
+        </div>
     </form>
 </div>
 {% endblock %}

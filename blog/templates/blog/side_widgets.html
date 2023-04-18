@@ -6,7 +6,9 @@
       <div class="card-body">
           <div class="input-group">
               <input class="form-control" type="text" placeholder="Search for..."id="search-input" />
-              <span class="input-group-append"><button class="btn btn-secondary" type="button">Go!</button></span>
+              <span class="input-group-append">
+                <button class="btn btn-secondary" type="button" onclick="searchPost();">Go!</button>
+            </span>
           </div>
       </div>
   </div>
@@ -35,3 +37,24 @@
       </div>
   </div>
 </div>
+
+<script>
+   // search
+function searchPost(){
+    let searchValue = document.getElementById('search-input').value.trim();
+    if(searchValue.length > 1){
+        // alert('검색어('+ searchValue +')');
+        location.href ="/blog/search/" + searchValue + "/";
+    }
+    else{
+        alert("검색어('+ searchValue +')가 너무 짧습니다.");
+    }
+;
+};
+document.getElementById('search-input').addEventListener("keyup",function(e){
+
+    if(e.key === 'Enter'){
+        searchPost();
+    }
+});
+</script>

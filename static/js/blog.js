@@ -14,3 +14,5 @@ if( doc_g >= window.innerHeight ){
 
     document.querySelector('footer').classList.remove('fixed-bottom')
 }
+
+

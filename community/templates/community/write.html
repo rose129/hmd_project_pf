@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+<!-- css 적용 부분 -->
+{% block style %} 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" >
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+<link rel="stylesheet" href="{% static '/css/style.css' %}">
+{% endblock %}
+
+<!-- head의 타이틀 -->
+{% block title %} write {% endblock %}
+
+<!-- 페이지 컨텐츠 영역 -->
+{% block content %}  
+<div class="form_bg ">
+    <h3 class="p-3">커뮤니티 데이터입력</h3>
+    <p>작성자 : {{ user }}</p>
+    <form action="" method="post">
+        <table class="wr_form">
+            {{ form }} {% csrf_token %}
+        </table>
+        <button type="submit" class="">
+            확인
+        </button>
+    </form>
+</div>
+{% endblock %}
+<!-- 페이지 컨텐츠 영역 끝 -->

@@ -50,7 +50,7 @@
             {% if post.head_image %}
                 <img class="img-fluid rounded con_img" src="{{ post.head_image.url }}" alt="{{ post.title }} head_image" />
             {% else %}
-                <img class="img-fluid rounded" src="https://picsum.photos/id/{{ post.id }}/750/200" alt="random_image" />
+                <img class="img-fluid rounded con_img" src="https://picsum.photos/id/{{ p.id }}/750/350" alt="random_image" />
             {% endif %}
             <hr />
             <!-- Post content-->

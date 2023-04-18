@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block style %} 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block title %} 커뮤니티 {% endblock %}
+
+{% block content %}
+<div class="container">
+    <ul class="co_list">
+        <h1 class="">COMMUNITY</h1>
+        <div class="list_tit">
+            <p>제목</p>
+            <div class="list_all">
+                <span>글쓴이</span>
+                <span>메일</span>
+                <span>작성일</span>
+            </div>
+        </div>
+        <!-- views.py : CBV방식으로 정의할 경우 -->
+        <!-- template으로 넘겨지는 테이블 데이터 객체 변수는 -->
+        <!-- 디폴트는  object_list-->
+        <!-- {{ object_list }}
+        {{ article_list }} -->
+        
+        {% for article in article_list %}
+        <li class="list">         
+            <a href="/community/view_detail/{{ article.id }}" class="  text-decoration-none">
+                {{ article.title }}
+            </a>  
+            <div>
+            {{ article.name }}
+            {{ article.email }}
+            {{ article.cdate|date:"Y년Md일D" }}
+            </div>
+        </li>
+        {% endfor %}
+        <div class="wr_btn">
+            <a href="/community/write">
+                <button type="submit" class="btn btn-outline-dark">작성하기</button>
+            </a> 
+        </div>
+    </ul>
+</div>
+    
+{% endblock %}

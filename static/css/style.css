@@ -9,6 +9,7 @@ a:hover{
     text-decoration: none;
     color: black;
 }
+
 li,ul,ol,dl{
 
     list-style: none;
@@ -127,9 +128,19 @@ nav button > span{
     font-weight: 600;
     margin: 0;
 }
+.con_img{
+    width: 100%;
+}
 .pd_ctg a{
     font-size: 1rem;
     font-weight: 600;
+}
+#comment-form{
+    width: 500px;
+    margin: 0 auto;
+}
+textarea.form-control {
+    height: 200px;
 }
 /* side_widgets */
 .side_widgets{
@@ -146,7 +157,6 @@ nav button > span{
     position: relative;
     border: none;
     background: rgb(0,0,0);
-    width:100px;
     font-size: 1em;
     height: 50px;
     width: 150px;
@@ -178,16 +188,26 @@ nav button > span{
                     top:inherit;
                     left:0;
                     bottom:0;
-                  }
+}
 .p_button a:hover:before,
 .p_button a:hover:after{
-                    width:100%;
-                    transition:800ms ease all;
-                  }
-
+        width:100%;
+        transition:800ms ease all;
+}
 
 .row{
     justify-content:space-between;
+}
+.page-link{
+    color: black;
+    outline: none;
+}
+.page-link:hover{
+    color: #ccc;
+    background-color: #1d2124;
+}
+.page-link:focus{
+    box-shadow: none;
 }
 @media(max-width:990px){
     #navbarNavDropdown.show{
@@ -247,4 +267,19 @@ nav button > span{
     .nav_side.show div{
         position: none;
     }
+    }
+    @media (max-width: 480px){
+        .p_button a{
+            display: block;
+            position: relative;
+            border: none;
+            background: rgb(0,0,0);
+            font-size: 0.8rem;
+            height: 40px;
+            width: 110px;
+            line-height: 30px;
+            color: #fff;
+            font-family: 'noto sans kr 500';
+}
+        
     }
