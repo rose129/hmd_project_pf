@@ -15,6 +15,7 @@ urlpatterns = [
     path('update_post/<int:pk>/', views.PostUpdate.as_view()),
   # 태그
     path('tag/<str:slug>/', views.tag_page),
-  
+  # 댓글 
+    path('<int:pk>/new_comment/', views.new_comment),
 
 ]

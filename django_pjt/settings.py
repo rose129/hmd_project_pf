@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'dashboard_drug',
     'community',
     'django_summernote',
+    'crispy_forms',
+    'crispy_bootstrap4',
      # all-auth lib 설정
     'django.contrib.sites',
 
@@ -51,8 +53,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     # google email
     'allauth.socialaccount.providers.google',
- 
-
 
 
 ]

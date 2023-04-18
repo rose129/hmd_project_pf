@@ -36,9 +36,7 @@ nav.navbar{
 nav button > span{
     line-height: 30px;
 }
-.tag{
-    display: inline-block;
-}
+
 #exampleModal{
     font-family: 'Playfair Display', serif;
     font-weight: 600;
@@ -187,6 +185,10 @@ nav button > span{
                     transition:800ms ease all;
                   }
 
+
+.row{
+    justify-content:space-between;
+}
 @media(max-width:990px){
     #navbarNavDropdown.show{
         background: white;

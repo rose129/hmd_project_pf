@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 {% load static %}
-
 
 {% block title %}
    {{ post.title }} - Blog
@@ -90,7 +90,7 @@
               {% endif %}
           </div>
            <!-- tag -->
-           <div class="tag float-right mr-2">
+           <div class="tag text-right mr-2">
                
             {% if post.tags.exists %}     
             <!-- 레코드 하나를 템플릿으로 넘겨받았을 때, ManytoMany 관계의 컬럼의(tags) 데이터 랜더링 방법  -->
@@ -103,51 +103,59 @@
                     {% endfor %}
                 {% endif %}
             </div>
-          <hr>
 
-            <!-- Comments form-->
-            <div class="card my-4">
-                <h5 class="card-header">Leave a Comment:</h5>
-                <div class="card-body">
-                    <form>
-                        <div class="form-group"><textarea class="form-control" rows="3"></textarea></div>
-                        <button class="btn btn-dark" type="submit">Submit</button>
-                    </form>
+            <div id="comment-area">
+                <!-- Comments form-->
+                <div class="card my-4">
+                    <h5 class="card-header">Leave a Comment:</h5>
+                    <div class="card-body">
+                         <!-- 회원이면 댓글을 달을수있고 회원만 댓글작성 버튼이 보임-->
+                        {% if user.is_authenticated %}
+                            <form id="comment-form" method="POST" action="{{ post.get_absolute_url }}/new_comment/">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                {{ comment_form | crispy }}
+                            </div>
+                            <button class="btn btn-secondary" type="submit">Submit</button>
+                        </form>
+                        <!-- 비회원이면 로그인 버튼이 생기고 클릭하면 로그인 modal이 뜹니다 -->
+                        {% else %}
+                            <a href="#" class="btn btn-outline-secondary d-block" role="button" data-toggle="modal" data-target="#exampleModal">
+                                Login and leave a comment
+                            </a>
+                        {% endif %}
+                    </div>
                 </div>
-            </div>
-            <!-- Single comment-->
-            <div class="media mb-4">
-                <img class="d-flex mr-3 rounded-circle" src="https://via.placeholder.com/50x50" alt="..." />
-                <div class="media-body">
-                    <h5 class="mt-0">Commenter Name</h5>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+               <!-- 상세페이지에 작성한 댓글 나타내기 -->
+            {% if post.comment_set.exists %}
+                {% for comment in post.comment_set.iterator %}
+                <!-- Single comment-->
+                <div class="media mb-4" id="comment-{{ comment.pk }}">
+                    <img class="d-flex mr-3 rounded-circle" src="https://via.placeholder.com/50x50" alt="..." />
+                    <div class="media-body">
+
+                        <h5 class="mt-0">{{ comment.author.username }}&nbsp;&nbsp;<small class="text-muted">{{ comment.created_at|date:'Y년 m월 d일 H:i' }}</small></h5>
+                        <p>{{ comment.content | linebreaks }}</p>
+
+                        {% if comment.created_at != comment.modified_at %}
+                            <p class="text-muted float-right">
+                                <small>
+                                    Updated: {{ comment.modified_at }}
+                                </small>
+                            </p>
+                        {% endif %}
+
+                    </div>
                 </div>
-            </div>
+                {% endfor %}
+            {% endif %}
             <!-- Comment with nested comments-->
-            <div class="media mb-4">
-                <img class="d-flex mr-3 rounded-circle" src="https://via.placeholder.com/50x50" alt="..." />
-                <div class="media-body">
-                    <h5 class="mt-0">Commenter Name</h5>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                    <div class="media mt-4">
-                        <img class="d-flex mr-3 rounded-circle" src="https://via.placeholder.com/50x50" alt="..." />
-                        <div class="media-body">
-                            <h5 class="mt-0">Commenter Name</h5>
-                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                        </div>
-                    </div>
-                    <div class="media mt-4">
-                        <img class="d-flex mr-3 rounded-circle" src="https://via.placeholder.com/50x50" alt="..." />
-                        <div class="media-body">
-                            <h5 class="mt-0">Commenter Name</h5>
-                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                        </div>
-                    </div>
-                </div>
+         
             </div>
         </div>
-        <!-- Sidebar widgets column-->
-        {% include 'blog/side_widgets.html' %} 
     </div>
+<!-- Sidebar widgets column-->
+{% include 'blog/side_widgets.html' %} 
 </div>
 {% endblock %}
