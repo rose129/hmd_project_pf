@@ -9,15 +9,20 @@
 {% block title %} 커뮤니티 {% endblock %}
 
 {% block content %}
-<div class="container ">
-
+<div class="container">
+    <div class="list-bg">
+        <span class="r"></span>
+        <span class="r s"></span>
+        <span class="r s"></span>
+        <span class="r"></span>
+    </div>
     <ul class="co_list shadow">
         <h3 class="py-3">COMMUNITY</h3>
-        <div class="list_tit py-2">
+        <div class="list_tit pb-2">
             <p>제목</p>
             <div class="list_all">
-                <span>글쓴이</span>
-                <span>메일</span>
+                <span class=>글쓴이</span>
+                <!-- <span>메일</span> -->
                 <span>작성일</span>
             </div>
         </div>
@@ -33,18 +38,21 @@
                 {{ article.title }}
             </a>  
             <div>
-            {{ article.name }}
-            {{ article.email }}
-            {{ article.cdate|date:"Y년Md일D" }}
+                <span class="mr-2">{{ article.name }}</span>
+                <span>{{ article.cdate|date:"Y/m/d" }}</span>
+             
             </div>
         </li>
         {% endfor %}
-        <div class="wr_btn">
+        <!-- 회원만 글쓰기 -->
+        {% if user.is_authenticated %}
+        <div class="wr_btn ml-2 mt-3">
             <a href="/community/write">
-                <button type="submit" class="btn btn-outline-dark">글쓰기</button>
+                <button type="submit" class="btn shadow">글쓰기</button>
             </a> 
         </div>
-        <nav aria-label="Page navigation example">
+        {% endif %}
+        <nav aria-label="Page navigation example" class="co_pgn">
             <ul class="pagination justify-content-center mb-4">
             
     
@@ -78,14 +86,14 @@
                 {% if page_obj.number == forloop.counter %}
                 <!-- 현재 선택한 페이지 번호는 비활성화 시킴 -->
                 <li class="page-item disabled " >
-                    <a class="page-link bg-dark text-white"  href="{{ request.path }}?page={{page}}">
+                    <a class="page-link bg-pink text-white co_h"  href="{{ request.path }}?page={{page}}">
                         {{ page }}
                     </a>
                 </li>
                 {% else %}
                 <!-- 선택하지 않은 페이지 번호는 활성화 시킴 -->
                 <li class="page-item">
-                    <a class="page-link " href="{{ request.path }}?page={{page}}">
+                    <a class="page-link co_h" href="{{ request.path }}?page={{page}}">
                         {{ page }}
                     </a>
                 </li>
@@ -97,7 +105,7 @@
             <!-- 다음페이지 이동 -->
             {% if page_obj.has_next %}
                 <li class="page-item">
-                    <a class="page-link " href="/blog/?page={{ page_obj.next_page_number }}" aria-label="Next">
+                    <a class="page-link " href="/community/?page={{ page_obj.next_page_number }}" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>

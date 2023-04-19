@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 a{
    
@@ -24,8 +24,11 @@ td> input{
 header{
     height: 100px;
     font-size: 1.2em;
-    font-family: 'Playfair Display', serif;
+    /* font-family: 'Playfair Display', serif; */
     font-weight: 600;
+}
+nav{
+    z-index: 10;
 }
 nav.navbar{
     height: 100px;;
@@ -44,6 +47,7 @@ nav button > span{
 }
 #navbarNavDropdown .nav_mid{
     height: 40px;
+    text-align: center;
 }
 .dropdown-menu{
     transform: translateX(-50%);
@@ -52,7 +56,8 @@ nav button > span{
 
 #navbarNavDropdown ul.nav_mid > li{
     position: relative;
-    margin-inline: 15px;
+    margin-inline: 10px;
+    width: 145px;
 
 }
 #navbarNavDropdown ul.nav_mid > li:hover:after{
@@ -71,6 +76,8 @@ nav button > span{
 #navbarNavDropdown .dropdown-menu.show a{
    
     line-height: 50px;
+    font-weight: 600;
+    color: #faccaf;
     
 }
 
@@ -80,7 +87,9 @@ nav button > span{
     padding: 0;
 }
 #navbarNavDropdown .nav_side .dropdown-menu.show a:hover{
-    background-color: rgb(255, 229, 233)
+    background-color: #faccaf;
+    font-weight: 600;
+    color: white;
 }
 .category a:hover{
     color: #ccc;
@@ -203,8 +212,14 @@ textarea.form-control {
     outline: none;
 }
 .page-link:hover{
-    color: #ccc;
-    background-color: #1d2124;
+    color: black;
+    text-decoration: none;
+    background-color: white;
+   
+}
+.blog_h:hover{
+    color: white !important;
+    background-color: #1d2124 !important;
 }
 .page-link:focus{
     box-shadow: none;
@@ -224,7 +239,7 @@ textarea.form-control {
 }
 @media screen and (max-width: 990px){
     #navbarNavDropdown.show{
-        background: white;
+        background: #fbebdd;
         position: relative;
         height: 350px;
         text-align: center;

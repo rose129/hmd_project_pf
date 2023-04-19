@@ -27,7 +27,7 @@ class ArticleLestView(ListView):
     model = Article
     ordering = '-pk'
     # 한페이지당 보여줄 post 갯수 정하기
-    paginate_by = 5
+    paginate_by = 8
     template_name = 'community/list.html'
 
 # 게시글

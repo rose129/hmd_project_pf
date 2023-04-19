@@ -107,68 +107,102 @@
      -->
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center mb-4">
-          
 
-          <!-- 이전페이지 이동 -->
-          <!-- 1페이지면 비활성화, 1페이지가 아닐경우는 활성화 -->
-          <!-- page_obj.has_previous : 이전 페이지가 있으면 True -->
-          {% if page_obj.has_previous %}
+        <!-- 제일 앞 페이지로 이동 -->
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+        <a class="page-link" href="/blog/?page=1" aria-label="First">
+            <span aria-hidden="true">&laquo;&laquo;</span>
+        </a>
+        </li>
+        {% else %}
+            <li class="page-item disabled">
+            <a class="page-link" href="#" aria-label="First">
+                <span aria-hidden="true">&laquo;&laquo;</span>
+            </a>
+            </li>
+        {% endif %}
+        
+
+        <!-- 이전페이지 이동 -->
+        <!-- 1페이지면 비활성화, 1페이지가 아닐경우는 활성화 -->
+        <!-- page_obj.has_previous : 이전 페이지가 있으면 True -->
+        {% if page_obj.has_previous %}
             <li class="page-item">
             <a class="page-link" href="/blog/?page={{ page_obj.previous_page_number }}" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
+            <span aria-hidden="true">&laquo;</span>
             </a>
-          </li>
-          {% else %}
-          <!-- 이전페이지가 없는 경우 -->
+        </li>
+        {% else %}
+        <!-- 이전페이지가 없는 경우 -->
             <li class="page-item disabled">
                 <a class="page-link" href="#" aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
-          {% endif %}
+        {% endif %}
 
-          <!-- 페이지별 목록 보기 -->
-          <!-- 
+        <!-- 페이지별 목록 보기 -->
+        <!-- 
                 views.py의 PostList 클래스에 paginate_by = 3 정의를 하면
                 템플릿에 넘겨주는 객체 변수
                 {{ page_obj.paginator.page_range }}
-          -->
-          {% for page in page_obj.paginator.page_range %}
-              <!-- 현재 선택한 페이지  -->
-              <!-- {{ page_obj.number }} -->
-            {% if page_obj.number == forloop.counter %}
-            <!-- 현재 선택한 페이지 번호는 비활성화 시킴 -->
-            <li class="page-item disabled " >
-                <a class="page-link bg-dark text-white"  href="{{ request.path }}?page={{page}}">
-                    {{ page }}
-                </a>
-            </li>
-            {% else %}
-            <!-- 선택하지 않은 페이지 번호는 활성화 시킴 -->
-            <li class="page-item">
-                <a class="page-link " href="{{ request.path }}?page={{page}}">
-                    {{ page }}
-                </a>
-            </li>
+        -->
+        {% for page in page_obj.paginator.page_range %}
+            <!-- 현재 선택한 페이지  -->
+            <!-- {{ page_obj.number }} -->
+            {% if page <= page_obj.number|add:2 and page >= page_obj.number|add:-2 %}
+                {% if page_obj.number == page %}
+                <!-- 현재 선택한 페이지 번호는 비활성화 시킴 -->
+                <li class="page-item disabled " >
+                    <a class="page-link bg-dark text-white"  href="{{ request.path }}?page={{page}}">
+                        {{ page }}
+                    </a>
+                </li>
+                {% else %}
+                <!-- 선택하지 않은 페이지 번호는 활성화 시킴 -->
+                <li class="page-item">
+                    <a class="page-link blog_h" href="{{ request.path }}?page={{page}}">
+                        {{ page }}
+                    </a>
+                </li>
 
+                {% endif %}
             {% endif %}
-          {% endfor %}
-         <!-- end 페이지별 목록 보기 -->
-          
-          <!-- 다음페이지 이동 -->
-          {% if page_obj.has_next %}
-            <li class="page-item">
-                <a class="page-link " href="/blog/?page={{ page_obj.next_page_number }}" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
+        {% endfor %}
+            <!-- end 페이지별 목록 보기 -->
+            
+            <!-- 다음페이지 이동 -->
+            {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link " href="/blog/?page={{ page_obj.next_page_number }}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            {% else %}
+                <li class="page-item disabled ">
+                    <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            {% endif %}
+
+            
+
+            <!-- 제일 뒷 페이지로 이동 -->
+            {% if page_obj.has_next %}
+                <li class="page-item">
+                <a class="page-link" href="/blog/?page={{ page_obj.paginator.num_pages }}" aria-label="Last">
+                    <span aria-hidden="true">&raquo;&raquo;</span>
                 </a>
-            </li>
-          {% else %}
-            <li class="page-item disabled ">
-                <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                <a class="page-link" href="#" aria-label="Last">
+                    <span aria-hidden="true">&raquo;&raquo;</span>
                 </a>
-            </li>
-          {% endif %}
+                </li>
+            {% endif %}
 
         </ul>
       </nav>
