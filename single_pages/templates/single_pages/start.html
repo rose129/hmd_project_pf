@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>끝말잇기_한지혜</title>
+    <link rel="stylesheet" href="{% static 'css/start.css' %}">
+</head>
+<body>
+    
+    <div class="modal hidden">
+        <div class="modal_bg"></div>
+         <div class="modal_content">
+            <span>
+                <h3>끝말잇기 게임 규칙</h3>
+                    <p> 1. 최소인원 1인부터 최대인원 4인까지만 게임이 가능합니다.</p>
+                    <p>2. 제한시간은 10초입니다.</p>
+                    <p>3. 한글만 입력 가능합니다. (숫자, 영문, 특수문자 불가능)</p>
+                    <p>- 한글외에 숫자나 영문을 입력시 3회의 기회가 주어지고 기회를 모두 소진시 게임종료.</p>
+                    <p>4. 게임포기 버튼을 누르면 게임이 종료 됩니다.</p>    
+            <button class="modal_btn closebtn">확인</button>
+            <!-- <button class="modal_btn" onclick="location.href='/wordgame/'">바로시작</button> -->
+            <a class="modal_btn" href='/wordgame/'>바로시작</a>
+            </span>
+        </div>
+      </div>
+    
+      
+
+    <section>
+        <div class='title-container'>
+            <span id='text'></span>
+            <div class='title-underscore' id='title'>&#95;</div>
+        </div>
+
+        <button id="open">규칙보기</button>
+        <a class="btn" href='/wordgame/'">START!</a>
+        
+    </section>
+
+</body>
+<script>
+    // modal
+    const openButton = document.getElementById("open");
+    const modal = document.querySelector(".modal")
+    const modalBg = modal.querySelector(".modal_bg")
+    const closeBtn = modal.querySelector(".closebtn")
+
+    const openModal = () =>{
+
+        modal.classList.remove("hidden")
+    }
+    const closeModal = () =>{
+
+        modal.classList.add("hidden")
+    }
+    modalBg.addEventListener("click", closeModal)
+    closeBtn.addEventListener("click", closeModal)
+    openButton.addEventListener("click", openModal)
+
+    // function([string1, string2],target id,[color1,color2])    
+    titleText(['HELLO !', 'WORD RELAY GAME'],'text',['#ffb3c0','#b18597']);
+
+    function titleText(words, id, colors) {
+    if (colors === undefined) colors = ['#fff'];
+    var visible = true;
+    var con = document.getElementById('title');
+    var letterCount = 1;
+    var x = 1;
+    var waiting = false;
+    var target = document.getElementById(id)
+    target.setAttribute('style', 'color:' + colors[0])
+    window.setInterval(function() {
+
+        if (letterCount === 0 && waiting === false) {
+        waiting = true;
+        target.innerHTML = words[0].substring(0, letterCount)
+        window.setTimeout(function() {
+            var usedColor = colors.shift();
+            colors.push(usedColor);
+            var usedWord = words.shift();
+            words.push(usedWord);
+            x = 1;
+            target.setAttribute('style', 'color:' + colors[0])
+            letterCount += x;
+            waiting = false;
+        }, 1000)
+        } else if (letterCount === words[0].length + 1 && waiting === false) {
+        waiting = true;
+        window.setTimeout(function() {
+            x = -1;
+            letterCount += x;
+            waiting = false;
+        }, 1000)
+        } else if (waiting === false) {
+        target.innerHTML = words[0].substring(0, letterCount)
+        letterCount += x;
+        }
+    }, 120)
+    window.setInterval(function() {
+        if (visible === true) {
+        con.className = 'title-underscore title_hidden'
+        visible = false;
+
+        } else {
+        con.className = 'title-underscore'
+
+        visible = true;
+        }
+    }, 400)
+    }
+    
+</script>
+</html>

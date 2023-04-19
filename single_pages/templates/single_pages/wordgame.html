@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>끝말잇기_한지혜</title>
+  <link rel="stylesheet" href="{% static 'css/wordgame.css' %}">
+  <script src="{% static 'js/main2.js' %}" defer></script>
+
+</head>
+
+<body>
+  <!-- 
+          추가 한 것
+        - 게임 들어가는 메인 페이지
+        - 규칙 보여주는 모달창과 게임시작버튼 추가
+        - 게임 인원수 최대 4인으로 제한
+        - 포기하기 다시시작 버튼 추가
+        - 포기하기 누르면 카운트정지 게임오버되고 input입력 막기 추가
+        - 다시시작 누르면 페이지 다시 로드 추가
+
+
+          나중에 시도 할 것
+        - prompt창 modal창으로 바꾸기
+        - 점수추가
+        - 중복글자금지 추가
+   -->
+
+  <a class="x_btn" href='/start/'">돌아가기</a>
+
+  <div class="header">
+    <div class="time">제한시간</div>
+    <h1></h1>
+    <div class="gameover hidden">
+      GAME OVER
+    </div>
+    <a class="start_btn hidden" href='/wordgame/'">다시 시작</a>
+    <button class="end_btn">포기</button>
+  </div>
+  
+  <div id="wrap">
+    
+    <div class="title"><span id="order">1</span> 번 참가자</div>
+    <div class="word_title">제시어: <span id="word"></span></div>
+    
+    <input class="answer"type="text">
+    <button class="btn">입력</button>
+
+  </div>
+
+</body>
+</html>

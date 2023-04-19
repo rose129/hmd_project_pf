@@ -6,6 +6,8 @@ urlpatterns = [
     path('', views.Landing),
     # about me
     path('about_me/', views.AboutMe),
+    path('start/', views.WordgameLanding),
+    path('wordgame/', views.Wordgame),
 ]
 
 
