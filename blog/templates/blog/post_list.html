@@ -151,6 +151,8 @@
         {% for page in page_obj.paginator.page_range %}
             <!-- 현재 선택한 페이지  -->
             <!-- {{ page_obj.number }} -->
+
+            <!-- 현재 페이지에서 이전글 2개 이후글2개씩  -->
             {% if page <= page_obj.number|add:2 and page >= page_obj.number|add:-2 %}
                 {% if page_obj.number == page %}
                 <!-- 현재 선택한 페이지 번호는 비활성화 시킴 -->
