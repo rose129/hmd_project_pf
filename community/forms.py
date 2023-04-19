@@ -10,3 +10,4 @@ class Form(ModelForm):
         fields = ["name", "title", "contents", "email"]
         widgets = {
                     'contents': SummernoteWidget() }
+        

@@ -209,10 +209,18 @@ textarea.form-control {
 .page-link:focus{
     box-shadow: none;
 }
+.google{
+    color: #fff;
+    background-color: #ea4335;
+    border-color: #fff;
+}
 .kakao{
     background: #FEE500;
     color: #191919;
-    border: 1px solid #393939;
+    
+}
+.kakao:hover{
+    color: white;
 }
 @media screen and (max-width: 990px){
     #navbarNavDropdown.show{

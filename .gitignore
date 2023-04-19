@@ -132,3 +132,5 @@ dmypy.json
 # my add
 pjt_venv/
 note/
+datas/
+media/

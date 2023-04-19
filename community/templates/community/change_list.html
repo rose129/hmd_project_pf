@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!-- css 적용 부분 -->
+{% block style %} 
+<link rel="stylesheet" href="{% static '/css/community.css' %}">
+{% endblock %}
+
+<!-- head의 타이틀 -->
+{% block title %} list {% endblock %}
+ 
+
+<!-- 페이지 컨텐츠 영역 -->
+{% block content %} 
+    <!-- <p class="mt-5 mb-5 ">제목 | 이메일 | 이름 | 작성 날짜</p> -->
+    <ul class="co_list">
+        <h4 class="">{{ user.get_username }}님이 작성한 글입니다.</h4>
+        <div class="list_tit">
+            <p>제목</p>
+            <div class="list_all">
+                <span>글쓴이</span>
+                <span>메일</span>
+                <span>작성일</span>
+            </div>
+        </div>
+        <!-- views.py : CBV방식으로 정의할 경우 -->
+        <!-- template으로 넘겨지는 테이블 데이터 객체 변수는 -->
+        <!-- 디폴트는  object_list-->
+        <!-- {{ object_list }}
+        {{ article_list }} -->
+        
+        {% for article in article_list %}
+        <li class="list">        
+            <a href="/community/view_detail/{{ article.id }}" class="  text-decoration-none">
+                {{ article.title }}
+            </a>  
+            <div>
+            {{ article.name }}
+            {{ article.email }}
+            {{ article.cdate|date:"Y년Md일D" }}
+            </div>
+        </li>
+        {% endfor %}
+        <div class="wr_btn">
+            <a href="/community/write">
+                <button type="submit" class="btn shadow">작성하기</button>
+            </a> 
+        </div>
+    </ul>
+    
+{% endblock %}
+<!-- 페이지 컨텐츠 영역 끝-->
+

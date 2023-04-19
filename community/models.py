@@ -29,4 +29,3 @@ class Article(models.Model):
         # 'community:view_detail' : path 이름
         return reverse('community:view_detail', args=(self.id,))
     
-   
