@@ -1,0 +1,49 @@
+{# 최근 5년간 국내 외국인 마약류 사범 현황 #}
+<!-- title -->
+
+<section>
+  <canvas id="foreign_drug_users_chart" height="400"></canvas>
+</section>
+
+<script>
+  const foreign_drug_users_ctx = document.querySelector('#foreign_drug_users_chart')
+
+  const foreign_drug_users_labels = [{% for fdu in foreign_drug_users %} '{{fdu.years_foreign_drug_users}}년 / {{fdu.personnel}}명 ({{fdu.f_num_drug_user}}%)', {% endfor %}];
+
+  const foreign_drug_users_data = [{% for fdu in foreign_drug_users %} {{ fdu.personnel }}, {% endfor %}];
+
+  const fdu_data = {
+      labels: foreign_drug_users_labels,
+      datasets: [
+          {
+              data: foreign_drug_users_data,
+              label: "최근 5년간 국내 외국인 마약류 사범 현황",
+              backgroundColor: [
+                "rgb(255, 99, 132)",
+                "rgb(255, 159, 64)",
+                "rgb(255, 205, 86)",
+                "rgb(75, 192, 192)",
+                "rgb(54, 162, 235)",
+              ],
+          },
+      ],
+  };
+
+    const foreign_drug_users_config = {
+        type: "bar",
+        data: fdu_data,
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true,
+                  }
+              }]
+          }
+        }
+    };
+
+  new Chart(foreign_drug_users_ctx, foreign_drug_users_config);
+</script>

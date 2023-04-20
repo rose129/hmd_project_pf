@@ -1,0 +1,83 @@
+{# 2021년 까지 연도별 재범률 #}
+<!-- title -->
+
+<!-- css_area -->
+{% block style %}
+<style>
+  .canvas_h {
+    overflow-y: auto;
+    position: relative;
+  }
+</style>
+{% endblock style %}
+
+<section>
+  <div class="canvas_h mt-5">
+    <canvas id="repeat_crime_chart" height="400"></canvas>
+  </div>
+  <div class="rc_word_bg">
+    <p class="rc_word"><span>※</span> 재범인원: 마약류 사범으로 입건된 전과가 1회 이상 있는 인원</p>
+  </div>
+</section>
+
+<script>
+  const repeat_crime_ctx = document.querySelector('#repeat_crime_chart');
+
+  const repeat_crime_labels = [{% for rc in repeat_crime %} '{{rc.years_repeat_crime}}년 : {{rc.rp_drug_user}}명', {% endfor %}];
+
+  const repeat_crime_labels_total = [{% for rc in repeat_crime %} '{{rc.all_drug_user}}명', {% endfor %}];
+
+  const repeat_crime_data = [{% for rc in repeat_crime %} {{ rc.rp_drug_user }}, {% endfor %}];
+
+  const repeat_crime_data_total = [{% for rc in repeat_crime %} {{ rc.all_drug_user }}, {% endfor %}];
+
+  const rc_data = {
+      labels: repeat_crime_labels,
+      datasets: [
+          {
+            data: repeat_crime_data_total,
+            label: "2021년 까지 연도별 재범사범 전체 수",
+            backgroundColor: [
+                  "rgb(0,0,0)",
+              ],
+            borderColor: [
+                  "rgb(0,0,0)",
+              ],
+            borderWidth: 1,
+            type: 'line',
+          },
+          {
+              data: repeat_crime_data,
+              label: "2021년 까지 연도별 재범인원 수",
+              backgroundColor: [
+                  "rgba(255, 99, 132, 0.5)",
+                  "rgba(255, 159, 64, 0.5)",
+                  "rgba(255, 205, 86, 0.5)",
+                  "rgba(75, 192, 192, 0.5)",
+                  "rgba(54, 162, 235, 0.5)",
+              ],
+              borderColor: ["rgb(255, 99, 132)", "rgb(255, 159, 64)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(54, 162, 235)"],
+              borderWidth: 2,
+              type: 'bar',
+          },
+      ],
+  };
+
+  const repeat_crime_config = {
+      type: 'bar',
+      data: rc_data,
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true,
+                }
+            }]
+        },
+      },
+  };
+
+  new Chart(repeat_crime_ctx, repeat_crime_config);
+</script>

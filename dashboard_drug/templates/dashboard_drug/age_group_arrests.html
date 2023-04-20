@@ -1,0 +1,52 @@
+{# 2022년 기준 연령대별 단속 내역 #}
+<!-- title -->
+
+<section>
+  <canvas id="age_group_arrests_chart" height="400"></canvas>
+</section>
+
+<script>
+  const age_group_arrests_ctx = document.querySelector('#age_group_arrests_chart')
+
+  const age_group_arrests_labels = [{% for aga in age_group_arrests %} '{{aga.age_group}} / {{aga.num_age_arrested}}명', {% endfor %}];
+
+  const age_group_arrests_data = [{% for aga in age_group_arrests %} {{ aga.num_age_arrested }}, {% endfor %}];
+
+  const aga_data = {
+      labels: age_group_arrests_labels,
+      datasets: [
+          {
+              data: age_group_arrests_data,
+              label: "2022년 기준 연령대별 단속 내역",
+              backgroundColor: [
+                  "rgb(255, 99, 132)",
+                  "rgb(255, 159, 64)",
+                  "rgb(255, 205, 86)",
+                  "rgb(75, 192, 192)",
+                  "rgb(54, 162, 235)",
+                  "rgb(153, 102, 255)",
+              ],
+              axis: 'y',
+          },
+      ],
+  };
+
+  const age_group_arrests_config = {
+      type: "bar",
+      data: aga_data,
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true,
+                }
+            }]
+        }
+      },
+  };
+
+  new Chart(age_group_arrests_ctx, age_group_arrests_config);
+</script>

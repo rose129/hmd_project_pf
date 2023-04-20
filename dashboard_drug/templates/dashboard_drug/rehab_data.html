@@ -1,0 +1,84 @@
+{# 2021년 까지 중독자 치료보호 및 감호 현황 #}
+<!-- title -->
+
+<!-- css_area -->
+{% block style %}
+<style>
+  .canvas_h {
+    overflow-y: auto;
+  }
+</style>
+{% endblock style %}
+
+<section>
+  <div class="canvas_h mt-3">
+    <canvas id="rehab_data_chart" height="400"></canvas>
+  </div>
+  <div>
+    <p><span>※</span> 치료보호: 전국 21개 마약류 중독자 전문치료병원에서 마약중독치료를 받을 수 있도록 입원치료 의뢰하는 조치</p>
+    <p><span>※</span> 자료감호: 검사의 청구로 법원이 결정하며, 치료감호 선고를 받은 자는 치료감호소 '약물중독 재활센터'에 수용되어 치료를 받게 됨</p>
+  </div>
+</section>
+
+<script>
+  const rehab_data_ctx = document.querySelector('#rehab_data_chart');
+
+  const rehab_data_labels = [{% for rd in rehab_data %} '{{rd.years_rehab_data}}년 : {{rd.cure_protect}}명', {% endfor %}];
+
+  const rehab_data_labels_total = [{% for rd in rehab_data %} '{{rd.cure_custody}}명', {% endfor %}];
+
+  const rehab_data_data = [{% for rd in rehab_data %} {{ rd.cure_protect }}, {% endfor %}];
+
+  const rehab_data_data_total = [{% for rd in rehab_data %} {{ rd.cure_custody }}, {% endfor %}];
+
+  const rd_data = {
+      labels: rehab_data_labels,
+      datasets: [
+          {
+            data: rehab_data_data_total,
+            label: "2021년 까지 중독자 치료감호 수",
+            backgroundColor: [
+                  "rgb(0,0,0)",
+              ],
+            borderColor: [
+                  "rgb(0,0,0)",
+              ],
+            borderWidth: 1,
+            type: 'line',
+          },
+          {
+              data: rehab_data_data,
+              label: "2021년 까지 중독자 치료보호 수",
+              backgroundColor: [
+                  "rgba(255, 99, 132, 0.5)",
+                  "rgba(255, 159, 64, 0.5)",
+                  "rgba(255, 205, 86, 0.5)",
+                  "rgba(75, 192, 192, 0.5)",
+                  "rgba(54, 162, 235, 0.5)",
+              ],
+              borderColor: ["rgb(255, 99, 132)", "rgb(255, 159, 64)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(54, 162, 235)"],
+              borderWidth: 2,
+              type: 'bar',
+          },
+      ],
+  };
+
+  const rehab_data_config = {
+      type: 'bar',
+      data: rd_data,
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true,
+                }
+            },
+        ]
+        },
+      },
+  };
+
+  new Chart(rehab_data_ctx, rehab_data_config);
+</script>

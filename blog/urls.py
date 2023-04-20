@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
+
 urlpatterns = [
   
   # /blog/ 
@@ -23,5 +24,7 @@ urlpatterns = [
     path('update_comment/<int:pk>/', views.CommentUpdate.as_view()),
   # 서치
     path('search/<str:q>/', views.PostSearch.as_view()),
+  # post 좋아요
+    # path('<int:post_pk>/likes/', views.likes, name='likes'),
 
 ]

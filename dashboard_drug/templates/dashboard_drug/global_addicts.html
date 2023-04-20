@@ -1,0 +1,80 @@
+{# 전 세계 지역별 마약 중독자 수 #}
+<!-- title -->
+{% load static %}
+
+<!-- css_area -->
+{% block style %}
+<style>
+  #global_addicts_chart {
+    background: url("{% static 'img/world_map.jpg' %}") no-repeat center;
+    background-size: contain;
+  }
+</style>
+{% endblock %}
+
+<section>
+  <canvas id="global_addicts_chart" height="400"></canvas>
+</section>
+
+<script>
+  const global_addicts_ctx = document.querySelector('#global_addicts_chart')
+
+  const global_addicts_labels = [{% for ga in global_addicts %} '{{ga.country}} / {{ga.num_drug_addicts}}만 명', {% endfor %}];
+
+  const global_addicts_data = [
+      { x: 31, y: 75, r: 30 },
+      { x: 40, y: 30, r: 15 },
+      { x: 55, y: 65, r: 40 },
+      { x: 50, y: 50, r: 20 },
+      { x: 10, y: 10, r: 10 },
+      { x: 30, y: 30, r: 25 },
+      { x: 50, y: 50, r: 45 },
+      { x: 70, y: 70, r: 20 },
+      { x: 90, y: 90, r: 10 },
+  ];
+
+  const ga_data = {
+      labels: global_addicts_labels,
+      datasets: [
+          {
+              data: global_addicts_data,
+              label: "전 세계 지역별 마약 중독자 수",
+              backgroundColor: [
+                  "rgba(255, 99, 132, 0.8)",
+                  "rgba(255, 159, 64, 0.8)",
+                  "rgba(255, 205, 86, 0.8)",
+                  "rgba(75, 192, 192, 0.8)",
+                  "rgba(54, 162, 235, 0.8)",
+                  "rgba(153, 102, 255, 0.8)",
+                  "rgba(201, 203, 207, 0.8)",
+                  "rgba(0, 0, 0, 0.8)",
+                  "rgba(20, 20, 207, 0.8)",
+              ],
+          },
+      ],
+  };
+
+    const global_addicts_config = {
+        type: "bubble",
+        data: ga_data,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    display: false,
+                },
+                y: {
+                    display: false,
+                },
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                    }
+                }]
+            },
+        },
+    };
+
+  new Chart(global_addicts_ctx, global_addicts_config);
+</script>

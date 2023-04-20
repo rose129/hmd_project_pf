@@ -1,0 +1,52 @@
+{# 2022년 기준 국내 외국인 마약사범 국적별 현황 #}
+<!-- title -->
+
+<section>
+  <canvas id="foreign_drug_user_nation_chart" height="400"></canvas>
+</section>
+
+<script>
+  const foreign_drug_user_nation_ctx = document.querySelector('#foreign_drug_user_nation_chart')
+
+  const foreign_drug_user_nation_labels = [{% for fdun in foreign_drug_user_nation %} '{{fdun.country}} / {{fdun.num_drug_user}}명 ({{fdun.percent}}%)', {% endfor %}];
+
+  const foreign_drug_user_nation_data = [{% for fdun in foreign_drug_user_nation %} {{ fdun.num_drug_user }}, {% endfor %}];
+
+  const fdun_data = {
+      labels: foreign_drug_user_nation_labels,
+      datasets: [
+          {
+              data: foreign_drug_user_nation_data,
+              label: "2022년 기준 국내 외국인 마약사범 국적별 현황",
+              backgroundColor: [
+                  "rgb(255, 99, 132, 0.5)",
+                  "rgb(255, 159, 64, 0.5)",
+                  "rgb(255, 205, 86, 0.5)",
+                  "rgb(75, 192, 192, 0.5)",
+                  "rgb(54, 162, 235, 0.5)",
+                  "rgb(153, 102, 255, 0.5)",
+              ],
+              borderColor: ["rgb(255, 99, 132)", "rgb(255, 159, 64)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(54, 162, 235)", "rgb(153, 102, 255)"],
+              borderWidth: 2,
+          },
+      ],
+  };
+
+  const foreign_drug_user_nation_config = {
+      type: "doughnut",
+      data: fdun_data,
+      options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                    }
+                }]
+            }
+      },
+  };
+
+  new Chart(foreign_drug_user_nation_ctx, foreign_drug_user_nation_config);
+</script>

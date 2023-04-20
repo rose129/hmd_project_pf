@@ -1,0 +1,50 @@
+{# 2022년 기준 마약류 품목별 단속 현황 #}
+<!-- title -->
+
+<section>
+  <canvas id="drug_items_chart" height="400"></canvas>
+</section>
+
+<script>
+  const drug_items_ctx = document.querySelector('#drug_items_chart')
+
+  const drug_items_labels = [{% for di in drug_items %} '{{di.drug_items}} / {{di.drug_items_arrested}}g', {% endfor %}];
+
+  const drug_items_data = [{% for di in drug_items %} {{ di.drug_items_arrested }}, {% endfor %}];
+
+  const di_data = {
+      labels: drug_items_labels,
+      datasets: [
+          {
+              data: drug_items_data,
+              label: "2022년 기준 마약류 품목별 단속 현황",
+              backgroundColor: [
+                "rgb(255, 99, 132)",
+                "rgb(153, 102, 255)",
+                "rgb(75, 192, 192)",
+                "rgb(255, 205, 86)",
+                "rgb(54, 162, 235)",
+                "rgb(0, 0, 0)",
+              ],
+          },
+      ],
+  };
+
+  const drug_items_config = {
+      type: "doughnut",
+      data: di_data,
+      options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true,
+                  }
+              }]
+          }
+      },
+  };
+
+  new Chart(drug_items_ctx, drug_items_config);
+</script>
