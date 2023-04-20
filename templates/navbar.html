@@ -19,6 +19,9 @@
                     <a class="nav-link" href="/about_me/">ABOUT ME<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item ">
+                        <a class="nav-link" href="/portfolio/">PORTFOLIO</a>
+                    </li>
+                    <li class="nav-item ">
                     <a class="nav-link" href="/dashboard_drug/">DASHBOARD</a>
                     </li>
                     <li class="nav-item ">
@@ -82,7 +85,11 @@
           </a>
           <a href="{% provider_login_url 'kakao' %}" role="button" class="btn kakao d-block mb-1">
             <i class="bi bi-chat mr-3"></i>
-            Login with kakao
+            Login with Kakao
+          </a>
+          <a href="{% provider_login_url 'naver' %}" role="button" class="btn kakao d-block mb-1">
+            <i class="bi bi-chat mr-3"></i>
+            Login with Naver
           </a>
           <a href="/accounts/signup/" role="button" class="btn btn-outline-secondary d-block mb-1">
             <i class="bi bi-envelope-heart mr-3"></i>

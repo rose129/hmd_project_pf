@@ -139,23 +139,52 @@ body{
     position: absolute;
     bottom: 0;
 }
-.wr_btn button{
+.w_btn{
+  border: none;
+}
+.w_btn button{
+   width: 80px;
+    height: 35px;
+    border: none;
+    border-radius: 15px;
+}
+.wr_btn button,
+.w_btn button{
   margin-bottom: 60px;
   background: #f9a6a2;
   color: white;
 }
-.wr_btn button:hover{
+.wr_btn button:hover,
+.w_btn button:hover{
   background: rgb(249, 236, 236);
   color: #f9a6a2;
   border: 2px solid #f9a6a2;
 }
-.wr_btn button:focus{
+.wr_btn button:focus,
+.w_btn button:focus{
   box-shadow: none;
 }
+
 .bg-pink{
   background: #f9a6a2 !important;
 }
 .co_h:hover {
   color: white;
   background-color: #f7847e;
+}
+
+.form_bg h3,
+.form_bg p{
+  text-align: center;
+}
+.wr_form_wrap{
+  position: relative;
+}
+.wr_form{
+  margin: 0 auto;
+}
+.wr_form_wrap button{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }

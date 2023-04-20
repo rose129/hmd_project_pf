@@ -18,7 +18,7 @@ class PostList(ListView):
     model = Post
     ordering = '-pk'
     # 한페이지당 보여줄 post 갯수 정하기
-    paginate_by = 3
+    paginate_by = 2
 
     def get_context_data(self, **kwargs):
 
@@ -67,7 +67,7 @@ class PostCreate(LoginRequiredMixin, UserPassesTestMixin, CreateView):
            
             response = super(PostCreate, self).form_valid(form)
 
-            tags_str = self.request.POST.get('tags_str')
+            tags_str = self.request.POST.get('tags_str', '').strip()
 
             if tags_str:
 
@@ -126,7 +126,7 @@ class PostUpdate(LoginRequiredMixin, UpdateView):
             response = super(PostUpdate, self).form_valid(form)
             self.object.tags.clear()
 
-            tags_str = self.request.POST.get('tags_str')
+            tags_str = self.request.POST.get('tags_str', '').strip()
 
             if tags_str:
                 tags_str = tags_str.strip()

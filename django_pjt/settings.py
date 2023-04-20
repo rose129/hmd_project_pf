@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'blog',
     'dashboard_drug',
     'community',
+    'portfolio',
     'django_summernote',
     'crispy_forms',
     'crispy_bootstrap4',
@@ -53,8 +54,10 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     # google email
     'allauth.socialaccount.providers.google',
-     # kakao
+    # kakao
     'allauth.socialaccount.providers.kakao',
+    # naver
+    'allauth.socialaccount.providers.naver',
 
 
 ]
