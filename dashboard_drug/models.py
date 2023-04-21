@@ -62,12 +62,12 @@ class GlobalAddicts(models.Model):
 # class name: ForeignDrugUser
 # label: (x)f_years, (y)f_num_drug_user
 class ForeignDrugUser(models.Model):
-    years_Foreign_drug_users = models.IntegerField(verbose_name='연도')
+    years_foreign_drug_users = models.IntegerField(verbose_name='연도')
     personnel = models.IntegerField(verbose_name='외국인 마약사범 수 (단위 : 명)')
     f_num_drug_user = models.DecimalField(max_digits=5, decimal_places=1, verbose_name='국내외 전체사범 중 비율 (%)')
     
     def __str__(self):
-        return f'{self.years_Foreign_drug_users} : {self.personnel} - {self.f_num_drug_user}'
+        return f'{self.years_foreign_drug_users} : {self.personnel} - {self.f_num_drug_user}'
     
     
     class Meta:

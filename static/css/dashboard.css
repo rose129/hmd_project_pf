@@ -1,5 +1,6 @@
 body{
   background: #E8E5DE;
+  overflow-x: hidden;
 }
 .container{
   margin: 0 auto;
@@ -9,85 +10,261 @@ body{
 .title{
   text-align: center;
   height: 65px;
-  background: #dc4444;
+  background: #535599;
   margin: 0 auto;
   width: 550px;
-  border-radius: 40px;
+  
 }
-.title h2{
+.title h3{
 
   color: white;
   line-height: 65px;
 }
 .dash_content{
-    border-radius: 20px;
+    border-radius: 10px;
     background: whitesmoke;
-    margin-block: 3%;
+    margin-block: 1%;
+    position: relative;
 }
 .global img{
-  width: 200px;
+  width: 190px;
 
 }
 .global ul{
   display: flex;
 }
-@media screen and (max-width: 1140px){
 
+.chart_title{
+  background: #535599;
+  height: 45px;
+  
+  margin: 0 auto;
+  
+}
+
+.chart_title h5{
+  line-height: 45px;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+}
+.c_title_wrap{
+  text-align: center;
+}
+
+.ds_bg{
+    background: #b9b7c9;
+    position: relative;
+}
+.ds_bg::before,
+.ds_bg::after{
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-color:#b9b7c9;
+  }
+  .ds_bg::before{
+
+    left: 100%;
+  }
+.ds_bg::after{
+  right: 100%;
+}
+.canvas_h {
+  overflow-y: auto;
+  position: relative;
+}
+.g_word{
+  padding: 20px;
+}
+.card{
+  flex-direction: row;
+}
+.g_btn{
+  display: flex;
+  justify-content: space-around;
+}
+.drug_text{
+  font-size: 0.7em;
+  margin-top: 20px;
+}
+.drug_text p{
+  text-align: left;
+  padding-top: 15px;
+  margin: 0;
+}
+.drug_text span{
+  display: block;
+}
+@media screen and (max-width: 1140px){
   .title{
     text-align: center;
     height: 65px;
-    background: #dc4444;
+    background: #535599;
     margin: 0 auto;
     width: 550px;
-    border-radius: 40px;
+    
   }
-  .title h2{
+  .title h3{
   
     color: white;
     line-height: 65px;
   }
   .dash_content{
-      border-radius: 20px;
+      border-radius: 10px;
       background: whitesmoke;
-      margin-block: 3%;
+      margin-block: 1%;
+      position: relative;
   }
   .global img{
-    width: 200px;
+    width: 190px;
   
   }
   .global ul{
     display: flex;
   }
+  
+  .chart_title{
+    background: #535599;
+    height: 45px;
+    
+    margin: 0 auto;
+    
+  }
+  
+  .chart_title h5{
+    line-height: 45px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+  }
+  .c_title_wrap{
+    text-align: center;
+  }
+  
+  .ds_bg{
+    background: #b9b7c9;
+    position: relative;
+}
+.ds_bg::before,
+.ds_bg::after{
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-color:#b9b7c9;
+  }
+  .ds_bg::before{
+
+    left: 100%;
+  }
+.ds_bg::after{
+  right: 100%;
+}
+  
+  .canvas_h {
+    overflow-y: auto;
+    position: relative;
+  }
+  .g_word{
+    padding: 20px;
+  }
+  .card{
+    flex-direction: row;
+  }
+  .g_btn{
+    display: flex;
+    justify-content: space-around;
   }
 @media screen and (max-width: 990px){
 
-.title{
-  text-align: center;
-  height: 65px;
-  background: #dc4444;
-  margin: 0 auto;
-  width: 550px;
-  border-radius: 40px;
+  .title{
+    text-align: center;
+    height: 65px;
+    background: #535599;
+    margin: 0 auto;
+    width: 550px;
+    
+  }
+  .title h3{
+  
+    color: white;
+    line-height: 65px;
+  }
+  .dash_content{
+      border-radius: 10px;
+      background: whitesmoke;
+      margin-block: 1%;
+      position: relative;
+  }
+  .global img{
+    width: 190px;
+  
+  }
+  .global ul{
+    display: flex;
+  }
+  
+  .chart_title{
+    background: #535599;
+    height: 45px;
+    
+    margin: 0 auto;
+    
+  }
+  
+  .chart_title h5{
+    line-height: 45px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+  }
+  .c_title_wrap{
+    text-align: center;
+  }
+  
+  .ds_bg{
+    background: #b9b7c9;
+    position: relative;
 }
-.title h2{
+.ds_bg::before,
+.ds_bg::after{
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-color:#b9b7c9;
+  }
+  .ds_bg::before{
 
-  color: white;
-  line-height: 65px;
+    left: 100%;
+  }
+.ds_bg::after{
+  right: 100%;
 }
-.dash_content{
-    border-radius: 20px;
-    background: whitesmoke;
-    margin-block: 3%;
-}
-.global img{
-  width: 200px;
-
-}
-.global ul{
-  display: flex;
-}
+  .canvas_h {
+    overflow-y: auto;
+    position: relative;
+  }
+  .g_word{
+    padding: 20px;
+  }
+  .card{
+    flex-direction: row;
+  }
+  .g_btn{
+    display: flex;
+    justify-content: space-around;
 }
 
 @media screen and (max-width: 480px){}
-
-

@@ -23,9 +23,9 @@ with open(CSV_PATH, 'r',  encoding='utf-8') as file:
     for row in data_rows:
         if row[0] != None or row[0] !='':
             ForeignDrugUser.objects.update_or_create(
-                years_Foreign_drug_users = row[0],
+                years_foreign_drug_users = row[0],
                 defaults = {
-                    'years_Foreign_drug_users' : row[0],
+                    'years_foreign_drug_users' : row[0],
                     'personnel' : row[1],
                     'f_num_drug_user' : row[2],
                 }

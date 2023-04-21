@@ -48,7 +48,7 @@ admin.site.register(GlobalAddicts, GlobalAddictsAdmin)
 
 # 23.04.18 추가
 class ForeignDrugUserAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'years_Foreign_drug_users', 'comma_personnel', 'comma_f_num_drug_user')
+    list_display = ('pk', 'years_foreign_drug_users', 'comma_personnel', 'comma_f_num_drug_user')
     
     def comma_personnel(self, obj):
         return intcomma(obj.personnel)

@@ -37,7 +37,7 @@ class Migration(migrations.Migration):
             name='ForeignDrugUser',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('years_Foreign_drug_users', models.IntegerField(verbose_name='연도')),
+                ('years_foreign_drug_users', models.IntegerField(verbose_name='연도')),
                 ('personnel', models.IntegerField(verbose_name='외국인 마약사범 수 (단위 : 명)')),
                 ('f_num_drug_user', models.DecimalField(decimal_places=1, max_digits=5, verbose_name='국내외 전체사범 중 비율 (%)')),
             ],
