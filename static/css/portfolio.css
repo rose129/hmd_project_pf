@@ -1,3 +1,43 @@
 body{
     background: #FFF4E0;
 }
+nav{
+    border-bottom: 1px solid black;
+}
+#navbarNavDropdown ul.nav_mid > li:after{
+    display: none;
+}
+#navbarNavDropdown ul.nav_mid > li:hover a{
+    color: red;
+}
+.scrolling-text {
+    font-size: 5em;
+    color: red;
+    font-weight: bold;
+    position: fixed;
+    right: 0;
+    top:15%;
+    white-space: nowrap;
+    }
+    
+.scrolling-text span {
+display: inline-block;
+padding-right: 15rem;
+animation: marquee 40s linear infinite;
+white-space: nowrap;
+}
+
+@keyframes marquee {
+0% {
+    transform: translateX(600%);
+}
+100% {
+    transform: translateX(-300%);
+}
+}
+.content{
+    margin-top: 10%;
+}
+footer{
+    border-top: 1px solid black;
+}

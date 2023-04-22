@@ -2,28 +2,40 @@
 {% load static %}
 
 {% block style %} 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" >
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
     <link rel="stylesheet" href="{% static 'css/portfolio.css' %}">
 {% endblock %}
 
 {% block title %} portfolio {% endblock %}
 
 {% block content %}
-<div class="container">
-    <div>
-        <h1>Portfolio</h1>
+    <div class="scrolling-text">
+        <span class="pf_1">PORTFOLIO</span>
+        <span class="pf_2">PORTFOLIO</span>
+        <span class="pf_3">PORTFOLIO</span>
     </div>
-    <div>
+    <div class="container content">
+        
+        
+        <div>
         <a href="/portfolio/start/">
             게임하기
         </a>
+         </div>
+
     </div>
 
-</div>
+    <script>
 
+        const scrollingText = document.querySelector('.scrolling-text');
+        const textWidth = scrollingText.clientWidth;
+        const containerWidth = scrollingText.parentNode.clientWidth;
 
+        if (textWidth > containerWidth) {
+        const clonedText = scrollingText.innerHTML;
+        scrollingText.innerHTML += clonedText;
+        }
 
+    </script>
 
 {% endblock %}

@@ -14,12 +14,12 @@
 {% block content %} 
     <!-- <p class="mt-5 mb-5 ">제목 | 이메일 | 이름 | 작성 날짜</p> -->
     <ul class="co_list">
-        <h4 class="">{{ user.get_username }}님이 작성한 글입니다.</h4>
+        <h5 class="text-center mb-4">{{ user.get_username }}님이 작성한 글입니다.</h5>
         <div class="list_tit">
             <p>제목</p>
             <div class="list_all">
                 <span>글쓴이</span>
-                <span>메일</span>
+            
                 <span>작성일</span>
             </div>
         </div>
@@ -36,8 +36,8 @@
             </a>  
             <div>
             {{ article.name }}
-            {{ article.email }}
-            {{ article.cdate|date:"Y년Md일D" }}
+           
+            {{ article.cdate|date:"Y/m/d" }}
             </div>
         </li>
         {% endfor %}

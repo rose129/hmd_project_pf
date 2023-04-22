@@ -14,22 +14,34 @@
 <!-- 페이지 컨텐츠 영역 -->
 {% block content %} 
 <div class="container">
-    <div class="form_bg ">
-        <h3 class="p-3">커뮤니티 글쓰기</h3>
-        <p>writer : {{ user }}</p>
+    <div class="wr-bg">
+        <span class="r"></span>
+        <span class="r s"></span>
+        <span class="r s"></span>
+        <span class="r s"></span>
+        <span class="r s"></span>
+        <span class="r"></span>
+    </div>
+    <div class="form_bg shadow ">
+        <div class="wr_title">
+            <h4>커뮤니티 글쓰기</h4>
+            <p>From. {{ user }}</p>
+
+        </div>
         <form action="" class="wr_form_wrap" method="post" enctype="multipart/form-data">
             <table class="wr_form">
                 {% csrf_token %}
-                {{ form }} 
+                {{ form  }} 
             </table>
             <div class="w_btn">
-                <button type="submit" class="mt-4">
+                <button type="submit">
                     확인
                 </button>
             </div>
         </form>
     </div>
 </div> 
+
 
 {% endblock %}
 <!-- 페이지 컨텐츠 영역 끝 -->

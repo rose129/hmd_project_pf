@@ -2,6 +2,10 @@
 {% load static %}
 
 {% block title %}글 삭제 - {{ object.pk }}{% endblock %}
+<!-- css 적용 부분 -->
+{% block style %} 
+<link rel="stylesheet" href="{% static '/css/community.css' %}">
+{% endblock %}
 {% load crispy_forms_tags %}
 
 {% block content %}

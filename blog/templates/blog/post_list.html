@@ -4,6 +4,10 @@
 {% block title %}
   Blog
 {% endblock %}
+{% block style %} 
+ 
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+{% endblock %}
 
 
 {% block content %}    
@@ -106,7 +110,7 @@
            제일 오른쪽 다음페이지를 클릭을 하면, 다음페이지로 이동
            현재 페이지가 마지막페이지이면, 다음페이지 버튼은 비활성화
      -->
-    <nav aria-label="Page navigation example">
+    <nav aria-label="Page navigation example" class="blog_pn">
         <ul class="pagination justify-content-center mb-4">
 
         <!-- 제일 앞 페이지로 이동 -->

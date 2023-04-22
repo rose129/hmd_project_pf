@@ -1,0 +1,12 @@
+#navbarNavDropdown ul.nav_mid > li:after{
+ background: black;
+}
+#main-area{
+  position: relative;
+}
+.blog_pn{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -5%;
+}

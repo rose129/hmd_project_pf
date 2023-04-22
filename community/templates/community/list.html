@@ -29,11 +29,10 @@
         <!-- views.py : CBV방식으로 정의할 경우 -->
         <!-- template으로 넘겨지는 테이블 데이터 객체 변수는 -->
         <!-- 디폴트는  object_list-->
-        <!-- {{ object_list }}
-        {{ article_list }} -->
+  
         
         {% for article in article_list %}
-        <li class="list pb-2">         
+        <li class="list">         
             <a href="/community/view_detail/{{ article.id }}" class="  text-decoration-none">
                 {{ article.title }}
             </a>  

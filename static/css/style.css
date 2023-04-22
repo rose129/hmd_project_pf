@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 a{
    
     color: black;
@@ -18,9 +22,7 @@ li,ul,ol,dl{
 td> input{
     width: 100%;
 }
-/* body{
-    background: #e7d9cd;
-} */
+
 header{
     height: 100px;
     font-size: 1em;
@@ -33,6 +35,9 @@ nav{
 nav.navbar{
     height: 100px;;
 }
+footer{
+    height: 100px;
+}
 .logo{
     height: 100px;
     line-height: 100px;
@@ -40,11 +45,18 @@ nav.navbar{
 nav button > span{
     line-height: 30px;
 }
-
-#exampleModal{
+.contents{
+    flex: 1;
+}
+.f_con{
+    line-height: 100px;
+    text-align: center;
+    margin: 0;
+}
+/* #exampleModal{
     font-family: 'Playfair Display', serif;
     font-weight: 600;
-}
+} */
 #navbarNavDropdown .nav_mid{
     height: 40px;
     text-align: center;
@@ -83,7 +95,7 @@ nav button > span{
 
 #navbarNavDropdown .nav_side li.show div{
     position: absolute;
-    top: 40px;
+    top: 50px;
     padding: 0;
 }
 #navbarNavDropdown .nav_side .dropdown-menu.show a:hover{
@@ -151,10 +163,7 @@ nav button > span{
 textarea.form-control {
     height: 200px;
 }
-/* side_widgets */
-.side_widgets{
-    margin-top: 50px;
-}
+
 /* button */
 
 .p_button{ 
@@ -244,9 +253,12 @@ textarea.form-control {
         height: 350px;
         text-align: center;
         z-index: 10;
+        
     
     }
     #navbarNavDropdown.show .nav_mid{
+        display: flex;
+        align-items: center;
 
         height: 50px;
         line-height: 50px;
@@ -257,10 +269,9 @@ textarea.form-control {
     }
     #navbarNavDropdown.show .nav_side{
         position: absolute;
-        bottom: 0px;
+        top: -24%;
         line-height: 50px;
-        transform: translateX(-50%);
-        left: 50%;
+        right: 10%;
     }
     #navbarNavDropdown .nav_mid .dropdown-menu.show{
         position: absolute;
@@ -312,3 +323,64 @@ textarea.form-control {
 }
         
     }
+
+#id_tags{
+    width: 200px;
+
+    }
+/* side_widgets */
+
+
+.side_widgets{
+    border: 1px solid black;
+    padding-top: 15px;
+    margin-top: 7%;
+    height: 100%;
+
+}
+.side_text{
+    background: black;
+    color: white;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+}
+.side_widgets .card-body{
+ padding: 0;
+}
+
+.side_s{
+    border: none;
+    border-radius: 0;
+    border-block: 1px solid black;
+}
+.side_s h5{
+    background: white;
+}
+.card-header {
+    border: 0;
+}
+.side_s .card-body{
+    margin-bottom: 15px;
+}
+.side_s .card-body input{
+    border:1px solid black;
+    border-radius:0;
+}
+.side_s .card-body button{
+    border-radius: 0;
+    background: black;
+}
+.side_c{
+    border: 0;
+}
+.side_c h5{
+    background: white;
+    border:1px solid black
+}
+.side_c .card-body{
+    padding: 1em;
+}
+.lead li{
+    padding: 0;
+}

@@ -9,5 +9,7 @@ class Form(ModelForm):
         model = Article
         fields = ["name", "title", "contents", "email"]
         widgets = {
-                    'contents': SummernoteWidget() }
+                    'contents': SummernoteWidget(
+                                attrs={'summernote': {'height': '400px'}}
+                    ) }
         

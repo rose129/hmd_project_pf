@@ -65,14 +65,72 @@ body{
             transform: rotate(360deg) translate(-10px) rotate(-360deg);
   }
 }
+
+
+/* 글쓰기 bg */
+.container .wr-bg .r {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+}
+.container .wr-bg .r:first-child {
+  top: -100px;
+  right: -100px;
+  background: linear-gradient(-135deg, #fe7f7b 0%, #ffd5d1 100%);
+}
+.container .wr-bg .r:last-child {
+  left: -100px;
+  bottom: -100px;
+  background: linear-gradient(-135deg,#FFC0BA 0%, #A389D4 100%);
+}
+.container .wr-bg .r.s {
+  width: 20px;
+  height: 20px;
+}
+.container .wr-bg .r.s:nth-child(2) {
+  top: 150px;
+  right: -150px;
+  background: #cc9bff80;
+}
+.container .wr-bg .r.s:nth-child(3) {
+  left: -150px;
+  bottom: 150px;
+  background: #f795958a;
+}
+.container .wr-bg .r.s:nth-child(4) {
+    left: -220px;
+    top: 100px;
+    background: #ffcacad6;
+    width: 100px;
+    height: 100px;
+}
+
+.container .wr-bg .r.s:nth-child(5) {
+  right: -150px;
+  bottom: 150px;
+  background: #95c4f78a;
+  height: 40px;
+  width: 40px;
+}
+.container .wr-bg .r:nth-child(odd) {
+  -webkit-animation: floating 7s infinite;
+          animation: floating 7s infinite;
+}
+.container .wr-bg .r:nth-child(even) {
+  -webkit-animation: floating 9s infinite;
+          animation: floating 9s infinite;
+}
+
 /* bg 끝 */
+
+/* 글목록 */
 
 .co_list{
     position: relative;
     margin: 0 auto;
-    margin-top: 5%;
-    margin-bottom: 10%;
-    background: #fbefe6;
+ 
+    background: #fbefe6ba;
     border-radius: 45px;
     width: 100%;
     height: 100%;
@@ -91,6 +149,7 @@ body{
 .co_list h3{
   text-align: center;
   margin: 0;
+  
 
 }
 .co_pgn{
@@ -118,6 +177,7 @@ body{
     line-height: 45px;
     border-bottom: 1px solid #ccc;
     padding-inline:10px;
+    align-items: center;
 }
 .list:hover{
   background: #ffaeaa;
@@ -135,12 +195,38 @@ body{
   text-align: right;
   font-size: 14px;
 }
+
+/* 글쓰기 */
+.form_bg{
+  padding-block: 50px;
+  background: #e8e5deb8;
+  border-radius: 50px;
+  position: relative;
+}
+.form_bg h4{
+  margin: 0;
+  padding-left: 30px;
+}
+.wr_title{
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 15px;
+  align-items: flex-end;
+}
+input{
+  border: 1px solid #ccc;
+}
+input#id_name{
+  width: 200px;
+}
 .wr_btn{
     position: absolute;
-    bottom: 0;
+    bottom: 8%;
 }
 .w_btn{
   border: none;
+  text-align: center;
 }
 .w_btn button{
    width: 80px;
@@ -150,7 +236,7 @@ body{
 }
 .wr_btn button,
 .w_btn button{
-  margin-bottom: 60px;
+  margin-top: 50px;
   background: #f9a6a2;
   color: white;
 }
@@ -173,18 +259,24 @@ body{
   background-color: #f7847e;
 }
 
-.form_bg h3,
 .form_bg p{
-  text-align: center;
+  margin: 0;
+  font-weight: bold;
 }
 .wr_form_wrap{
   position: relative;
+  margin-top: 40px;
 }
 .wr_form{
   margin: 0 auto;
 }
-.wr_form_wrap button{
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+.wr_update{
+  width: 80%;
+  margin-top: 50px;
+}
+#id_contents{
+  width: 100%;
+}
+th{
+  width: 85px;
 }
