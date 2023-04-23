@@ -241,14 +241,3 @@ def delete_comment(request, pk):
         
         raise PermissionDenied
     
-# @require_POST
-# def likes(request, post_pk):
-#     if request.user.is_authenticated:
-#         article = get_object_or_404(Article, pk=post_pk)
-
-#         if article.like_users.filter(pk=request.user.pk).exists():
-#             article.like_users.remove(request.user)
-#         else:
-#             article.like_users.add(request.user)
-#         return redirect('/blog/')
-#     return redirect('/accouts/login/')

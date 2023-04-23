@@ -9,12 +9,23 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <h1>메모글 작성</h1>
-    <p>by {{ user }}</p>
+    <div class="container">
+        <div class="del_wrap shadow">
+            <div class="del_title">
+                <h2>{{ object.title }}</h2>
+                  <p>ID_ {{ user }}</p>
+            </div>
+            
+           <div class="del_form">
+            <form action="" method="post">
+                {% csrf_token %}
+                <p>정말 삭제 하겠습니까?</p>
+                <input type="submit" value="삭제" class="btn btn-danger px-3 btn-sm ">
+                </form>
+           </div>
+            
+        </div>
+    </div>
+    
    
-    <form action="" method="post">
-    {% csrf_token %}
-    <p>{{ object }}를 정말 삭제 하겠습니까?</p>
-    <input type="submit" value="삭제" class="btn btn-danger btn-sm">
-    </form>
 {% endblock %}

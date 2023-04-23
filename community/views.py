@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from .models import Article
 from .forms import Form
@@ -44,17 +44,28 @@ class ArticleChangeView(LoginRequiredMixin, ListView):
         return Article.objects.filter(owner= self.request.user)
 
 # 게시글 수정
-class ArticleUpdateView(LoginRequiredMixin, UpdateView):
+class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Article
     fields = ["name", "title", "contents", "email"]
     template_name = 'community/write_update.html'
     # community:list, id값 같이 넘기기 <= path name
 
     success_url = reverse_lazy('community:change_list')
+        # 작성자만 글 수정
+    def test_func(self):
+        obj = self.get_object()
+        return obj.owner == self.request.user
+
+
+
 
 # 게시글 삭제
-class ArticleDeleteView(LoginRequiredMixin, DeleteView):
+class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Article
     template_name = 'community/write_delete.html'
+
     success_url = reverse_lazy('community:change_list')
 
+    def test_func(self):
+        obj = self.get_object()
+        return obj.owner == self.request.user

@@ -45,7 +45,6 @@ class Post(models.Model):
 
     category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.SET_NULL)
 
-    like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_post')
     tags = models.ManyToManyField(Tag, blank=True)
 
 

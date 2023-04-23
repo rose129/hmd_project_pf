@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'crispy_forms',
     'crispy_bootstrap4',
+    
      # all-auth lib 설정
     'django.contrib.sites',
 
@@ -58,7 +59,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.kakao',
     # naver
     'allauth.socialaccount.providers.naver',
-
+    
+    'django_js_reverse',
 
 ]
 

@@ -141,6 +141,7 @@ nav button > span{
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
+    padding-block: 10px;
 }
 
 .pd_mid p{
@@ -161,7 +162,7 @@ nav button > span{
     margin: 0 auto;
 }
 textarea.form-control {
-    height: 200px;
+    height: 120px;
 }
 
 /* button */
@@ -233,18 +234,27 @@ textarea.form-control {
 .page-link:focus{
     box-shadow: none;
 }
-.google{
-    color: #fff;
-    background-color: #ea4335;
-    border-color: #fff;
+.lead_ a{
+    font-size: 16px;
+    font-weight: 600;
 }
-.kakao{
-    background: #FEE500;
-    color: #191919;
-    
+.lead_ p{
+    margin: 0;
+    margin-right: auto;
+    font-size: 16px;
+    font-weight: 600;
+    padding-left: 10px;
 }
-.kakao:hover{
-    color: white;
+.pd_mid h2{
+    font-weight: bold;
+}
+#post-area .lead_{
+    border-block: 1px solid #ccc;
+    padding-block: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 20px;
 }
 @media screen and (max-width: 990px){
     #navbarNavDropdown.show{

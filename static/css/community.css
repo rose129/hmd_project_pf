@@ -202,6 +202,8 @@ body{
   background: #e8e5deb8;
   border-radius: 50px;
   position: relative;
+  width: 80%;
+  margin: 0 auto;
 }
 .form_bg h4{
   margin: 0;
@@ -280,3 +282,47 @@ input#id_name{
 th{
   width: 85px;
 }
+
+.del_wrap{
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    padding-block: 50px;
+    background: #e8e5deb8;
+    position: relative;
+}
+.del_form p{
+  padding-block: 5%;
+}
+.del_title > p{
+  margin-top: 20px;
+  font-weight: bold;
+}
+.del_title{
+  border-bottom: 1px solid #aaa;
+}
+.up_wrap{
+  margin: 0 auto;
+}
+.co_up{
+  margin: 0 auto;
+  padding: 45px;
+  border: 1px solid #aaa;
+}
+.co_up h3{
+  text-align: center;
+}
+.lead{
+  padding-top: 35px;
+}
+.c_head{
+    display: flex;
+    font-size: 16px;
+    font-weight: bold;
+    align-items: center;
+    justify-content: flex-end;
+    padding-block: 30px;
+    border-bottom: 1px solid black;
+}
+.c_head p{    margin: 0;
+  padding-left: 15px;}

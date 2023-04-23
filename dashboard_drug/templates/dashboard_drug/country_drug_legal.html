@@ -13,6 +13,8 @@
   .country_info li {
     overflow: hidden;
     display: flex;
+    flex-direction: row;
+    align-items: center;
     position: absolute;
     top: 0;
     left: 0;
@@ -20,23 +22,34 @@
     transition: all 0.3s;
   }
   .country_info li.active {
-    height: auto;
+    height: 300px !important;
     transition: all 0.3s;
   }
   img {
-    max-width: 100%;
+    max-width: 70%;
+   
   }
+  .country_btn{
+    display: flex;
+    justify-content: space-between;
+  }
+  .legal_wrap{
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    padding: 50px;
+    border-style: outset;
+  }
+  
 </style>
 {% endblock %}
 
-<div>
+<div class="mt-5 legal_wrap">
   <h3>마약이 합법이 나라들</h3>
   <strong>마약이 합법이 나라들에는 어떤 게 있을까?</strong>
   <p>
     마약이 합법화된 나라는 세계적으로는 매우 적습니다. 현재 마약의 합법화 정책 을 채택하고 있는 나라들은 대부분 의료용 마약이나 대마초를 제한적으로 허용하 고 있습니다. 이러한 나라들의 대표적인 예시를
     아래에 나열해 보았습니다.
   </p>
-  <div>
+  <div class="country_btn py-4">
     <button type="button" onclick="accordion('netherlands')">
       네덜란드
       <span class="text-hide">버튼을 클릭하면 하단 설명문 열림</span>
@@ -61,23 +74,38 @@
   </div>
   <ul class="country_info">
     <li>
-      <img src="{% static 'img/flag_netherlands.jpg' %}" alt="netherlands" />
+      <figure>
+
+        <img src="{% static 'img/flag_netherlands.jpg' %}" alt="netherlands" />
+      </figure>
       <p>네덜란드는 대마초 판매가 일부 합법화되어 있습니다. 이 지역에서는 대마초를 파는 커피숍이 존재하며, 대마초는 소규모 사용자에 한해 판매됩니다.</p>
     </li>
     <li>
-      <img src="{% static 'img/flag_uruguay.jpg' %}" alt="uruguay" />
+      <figure>
+        
+        <img src="{% static 'img/flag_uruguay.jpg' %}" alt="uruguay" />
+      </figure>
       <p>우루과이는 대마초의 생산, 판매, 소비가 합법화된 세계 최초 국가 입니다. 하지만 이에 대한 제한이 있으며, 우루과이 국민이나 거주자에 한해 사용이 허용됩니다.</p>
     </li>
     <li>
-      <img src="{% static 'img/flag_canada.jpg' %}" alt="canada" />
+      <figure>
+        
+        <img src="{% static 'img/flag_canada.jpg' %}" alt="canada" />
+      </figure>
       <p>2018년 캐나다는 대마초를 합법화했습니다. 대마초 사용이 금지된 곳도 있지만, 대부분의 지역에서는 대마초를 허용하고 있으며, 대마초를 구 매하는 것도 가능합니다.</p>
     </li>
     <li>
-      <img src="{% static 'img/flag_germany.jpg' %}" alt="germany" />
+      <figure>
+        
+        <img src="{% static 'img/flag_germany.jpg' %}" alt="germany" />
+      </figure>
       <p>독일은 의학적 목적으로 대마초 사용을 허용하고 있습니다. 의사의 처 방을 받으면 대마초를 구매할 수 있으며, 일부 의료 보험도 이를 보장합니다.</p>
     </li>
     <li>
-      <img src="{% static 'img/flag_israel.jpg' %}" alt="israel" />
+      <figure>
+        
+        <img src="{% static 'img/flag_israel.jpg' %}" alt="israel" />
+      </figure>
       <p>이스라엘은 의학적 목적으로 대마초 사용을 허용하는 국가입니다. 이 지역에서는 대마초를 치료제나 약제로 사용할 수 있습니다.</p>
     </li>
   </ul>

@@ -44,8 +44,8 @@
                             {% endif %}
                             {{ user.username }}
                         </a>
-                        <div class="dropdown-menu" style="transform: translateX(-50%);
-                        left: 50%;">
+                        <div class="dropdown-menu" style="transform: translateX(-50%); left: 50%;">
+                          <a class="dropdown-item p-0 text-center" href="{% url 'account_change_password' %}">비밀번호변경</a>
                           <a class="dropdown-item p-0 text-center" href="/accounts/logout/">LOGOUT</a>
                         </div>
                       </li>

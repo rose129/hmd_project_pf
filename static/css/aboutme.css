@@ -94,12 +94,12 @@ nav li:hover a{
   border: 1px solid #ffb69e;
   border-radius:30px
 }
-.skill-bar-django{
+.skill-bar-python{
   box-sizing: border-box;
   border: 1px solid #ffa07f;
   border-radius:30px
 }
-.skill-bar{
+.skill-bar-django{
   box-sizing: border-box;
   border: 1px solid #ff8e63;
   border-radius:30px
@@ -116,12 +116,12 @@ nav li:hover a{
     background-color: #ffb69e;
     border-radius: 30px;
 }
-.skill-level-django {
+.skill-level-python{
   height: 30px;
   background-color: #ffa07f;
   border-radius: 30px;
 }
-.skill-level {
+.skill-level-django {
   height: 30px;
   background-color: #ff8e63;
   border-radius: 30px;
@@ -131,9 +131,9 @@ nav li:hover a{
   width: 75%;
   animation: html 2s;
 }
-.css {
-  width: 75%;
-  animation: css 3s;
+.python{
+  width: 40%;
+  animation: python 3s;
 }
 .js {
   width: 65%;
@@ -155,7 +155,7 @@ nav li:hover a{
     width: 75%;
   }
 }
-@keyframes css {
+@keyframes python {
   0% {
     width: 0;
   }
@@ -163,7 +163,7 @@ nav li:hover a{
     width: 100%;
   }
   100% {
-    width: 75%;
+    width: 40%;
   }
 }
 @keyframes js {
