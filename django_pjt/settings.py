@@ -60,7 +60,7 @@ INSTALLED_APPS = [
     # naver
     'allauth.socialaccount.providers.naver',
     
-    'django_js_reverse',
+    
 
 ]
 

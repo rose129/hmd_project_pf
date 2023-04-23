@@ -45,3 +45,10 @@ white-space: nowrap;
 .content{
     margin-top: 10%;
 }
+.line{
+    width: 85%;
+    border-bottom: 1px solid black;
+    position: absolute;
+    left: 0;
+    top: 30%;
+}
