@@ -37,6 +37,7 @@ nav.navbar{
 }
 footer{
     height: 100px;
+    z-index: 9;
 }
 .logo{
     height: 100px;
