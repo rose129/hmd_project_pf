@@ -33,8 +33,8 @@
             <!-- Author-->
             <div class="lead_">
                 <a href="#!">From {{ post.author | upper }} </a>
-                 <!-- Date and time-->
-                 <p> {{ post.created_at|date:'Y년 m월 d일 H시i분' }}</p>
+                <!-- Date and time-->
+                <p> {{ post.created_at|date:'Y년 m월 d일 H시i분' }}</p>
                 <div class="pd_ctg">
                     {% if post.category %}
                     <span class="badge badge-dark float-right p-1" >{{post.category}}</span>
@@ -42,14 +42,9 @@
                     <span class="badge badge-dark float-right p-1" >미분류</span>
                 </div>
                     {% endif %}
-                
-                
+                  
             </div>
-    
-           
-           
-            
-          
+        </div>
             <!-- Preview image-->
             {% if post.head_image %}
                 <img class="img-fluid rounded con_img" src="{{ post.head_image.url }}" alt="{{ post.title }} head_image" />
@@ -61,8 +56,7 @@
             <!-- {{ post.content | safe }} html태그 노출 방지-->
             <p class="lead">{{ post.content | safe }}</p>
 
-           
-
+            <!-- 첨부파일  -->
             {% if post.file_upload %}
               <a href="{{ post.file_upload.url }}" class="btn btn-outline-secondary" role="button" download>
                   Download :
@@ -107,7 +101,7 @@
                     {% endfor %}
                 {% endif %}
             </div>
-
+            
             <div id="comment-area">
                 <!-- Comments form-->
                 <div class="card my-4">
@@ -116,12 +110,12 @@
                          <!-- 회원이면 댓글을 달을수있고 회원만 댓글작성 버튼이 보임-->
                         {% if user.is_authenticated %}
                             <form id="comment-form" method="POST" action="{{ post.get_absolute_url }}/new_comment/">
-                            {% csrf_token %}
-                            <div class="form-group">
-                                {{ comment_form | crispy }}
-                            </div>
-                            <button class="btn btn-outline-dark float-right" type="submit">확인</button>
-                        </form>
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    {{ comment_form | crispy }}
+                                </div>
+                                <button class="btn btn-outline-dark float-right" type="submit">확인</button>
+                            </form>
                         <!-- 비회원이면 로그인 버튼이 생기고 클릭하면 로그인 modal이 뜹니다 -->
                         {% else %}
                             <a href="#" class="btn btn-outline-secondary d-block" role="button" data-toggle="modal" data-target="#exampleModal">

@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from .views import CustomPasswordChangeView
 
 urlpatterns = [
     path('blog/', include('blog.urls')),
@@ -27,7 +28,8 @@ urlpatterns = [
     path('community/', include('community.urls')),
     path('summernote/', include('django_summernote.urls')),
     # all-auth path
-    path('accounts/', include('allauth.urls')),
+    path("accounts/password/change/", CustomPasswordChangeView.as_view(), name="account_password_change"),
+    path('accounts/', include('allauth.urls')),      
 ]
 
 if settings.DEBUG:

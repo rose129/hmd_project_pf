@@ -8,4 +8,9 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    
+}
+
+.category li{
+
+    padding: 3px;
+}

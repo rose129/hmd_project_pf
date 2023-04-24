@@ -52,3 +52,23 @@ white-space: nowrap;
     left: 0;
     top: 30%;
 }
+.wrap{
+    display: flex;
+    margin-top: 20%;
+    justify-content: space-around;
+}
+#back,
+#front{
+    width: 20vw;
+    border: 1px solid black;
+    padding: 5px;
+}
+.pj_1,
+.cafe24{
+    text-align: center;
+}
+.pj_1 h4,
+.cafe24 h4{
+    border-bottom: 1px solid black;
+    padding-block: 10px;
+}

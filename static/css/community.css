@@ -326,3 +326,9 @@ th{
 }
 .c_head p{    margin: 0;
   padding-left: 15px;}
+
+.cw_btn{
+    bottom: -10%;
+    position: absolute;
+    left: 16%;
+}
