@@ -8,8 +8,12 @@
     <canvas id="repeat_crime_chart" height="400"></canvas>
   </div>
   <div class="rc_word_bg drug_text">
-    <p class="rc_word">
-      <span>※재범인원</span> 
+    <p>
+      <span>※ 재범률:</span> 
+       2017년 36.3% / 2018년 36.6% / 2019년 35.6% / 2020년 32.9% / 2021년 36.6%
+    </p>
+    <p >
+      <span>※ 재범인원:</span> 
        마약류 사범으로 입건된 전과가 1회 이상 있는 인원
     </p>
   </div>
@@ -26,12 +30,14 @@
 
   const repeat_crime_data_total = [{% for rc in repeat_crime %} {{ rc.all_drug_user }}, {% endfor %}];
 
+  
+
   const rc_data = {
       labels: repeat_crime_labels,
       datasets: [
           {
             data: repeat_crime_data_total,
-            label: "2021년 까지 연도별 마약사범 전체 수",
+            label: "전체 마약사범 수 (단위: 명)",
             backgroundColor: [
                   "rgb(0,0,0)",
               ],
@@ -43,7 +49,7 @@
           },
           {
               data: repeat_crime_data,
-              label: "2021년 까지 연도별 재범인원 수",
+              label: "재범인원 수 (단위: 명)",
               backgroundColor: [
                   "#639D9C",
               ],

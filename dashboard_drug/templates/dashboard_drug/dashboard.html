@@ -6,6 +6,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
   
+  
 {% endblock %}
 <!-- title_area -->
 {% block title %}한국 마약 현황 데이터 분석 시각화 > 대시보드{% endblock %}
@@ -73,48 +74,6 @@
 </div>
 
 
-<!-- 버전2 -->
-
-<!-- <div class="modal hidden">
-  <div class="modal_bg"></div>
-   <div class="modal_content">    
-        <h3>출처</h3>
-          <div>   
-            <a href="https://www.nars.go.kr/report/view.do?cmsCode=CM0018&brdSeq=41619]">최근 5년간 마약류 사범 수 [국회 입법조사처]</a>
-          </div>
-          <div>
-            <a href="https://www.police.go.kr/user/bbs/BD_selectBbsList.do?q_bbsCode=1002">2022년 기준 연령대별 단속 내역 [경찰청]</a>
-          </div>
-          <div>        
-            <a href="https://www.customs.go.kr/kcs/na/ntt/selectNttInfo.do?mi=2891&bbsId=1362&nttSn=10072814">2022년 기준 마약류 품목별 단속 현황 [관세청]</a>
-          </div>
-          <div>
-            <a href="https://www.unodc.org/unodc/data-and-analysis/world-drug-report-2022.html">전 세계 지역별 마약 중독자 수 [UN 세계 마약 보고서 2022]</a>
-          </div>
-          <div>          
-            <a href="https://www.sisajournal.com/news/articleView.html?idxno=243527">국내 마약 유통 흐름도 [시사저널(1747호)]</a>
-          </div>
-          <div>          
-            <a href="https://www.police.go.kr/user/bbs/BD_selectBbsList.do?q_bbsCode=1002">최근 5년간 국내 외국인 마약류 사범 현황 [경찰청]</a>
-          </div>
-          <div>     
-            <a href="https://www.police.go.kr/user/bbs/BD_selectBbsList.do?q_bbsCode=1002">2022년 기준 국내 외국인 마약사범 국적별 현황 [경찰청]</a>
-          </div>
-          <div>    
-            <a href="https://www.spo.go.kr/site/spo/ex/board/List.do?cbIdx=1204">2021년 까지 연도별 재범률 [대검찰청]</a>
-          </div>
-          <div>      
-            <a href="https://www.spo.go.kr/site/spo/ex/board/List.do?cbIdx=1204">2021년 까지 중독자 치료보호 및 감호 현황 [대검찰청]</a>
-          </div>
-            
-    <button class="modal_btn closebtn">
-      <i class="bi bi-x-lg closebtn"></i>
-    </button>
-      
-      </span>
-  </div>
-</div> -->
-
 
 
 
@@ -128,9 +87,9 @@
 <div>
   <section class="row mb-5">
 
-    <div class="c_title_wrap col-lg-6 wow animate__ animate__fadeInLeft">
+    <div class="c_title_wrap col-lg-6 ">
       <div class="chart_title px-4 ">
-        <h5>최근 5년간 마약 사범 수</h5>
+        <h5>최근 5년간 마약류 사범 수</h5>
       </div>
       <div class="chart_area dash_content shadow p-3 ">
        
@@ -153,7 +112,7 @@
   </section>
 
   <section class="row mb-5 py-5 ds_bg">
-    <div class="c_title_wrap col-lg-5 wow animate__ animate__fadeInLeft">
+    <div class="c_title_wrap col-lg-5 wow fadeInLeft animated" data-wow-duration="2s" data-wow-delay="5s">
       <div class="chart_title px-4">
         <h5>2022년 마약류 품목별 단속 현황</h5>
       </div>
@@ -206,8 +165,8 @@
 
   <section class="row py-5 ">
 
-    <div class="c_title_wrap col-lg-7">
-      <div class="chart_title px-4">
+    <div class="c_title_wrap col-lg-7 ">
+      <div class="chart_title px-4 " >
         <h5>최근 5년간 국내 외국인 마약류 사범 현황</h5>
       </div>
       <div class="chart_area dash_content shadow p-3 ">
@@ -227,7 +186,7 @@
   <section class="row mb-5 py-5 ds_bg">
     <div class="c_title_wrap col-lg-6">
       <div class="chart_title px-4">
-        <h5>연도별 재범사범 전체 수</h5>
+        <h5>연도별 재범인원 및 재범률</h5>
       </div>
       <div class="chart_area dash_content shadow p-3 ">
         {% include "dashboard_drug/repeat_crime.html" %} 
@@ -236,7 +195,7 @@
 
     <div class="c_title_wrap col-lg-6">
       <div class=" chart_title px-4">
-        <h5>연도별 중독자 치료감호 수</h5>
+        <h5>중독자 치료보호 및 감호현황</h5>
       </div>
       <div class="chart_area dash_content shadow p-3 ">
         {% include "dashboard_drug/rehab_data.html" %}
@@ -258,11 +217,11 @@
   <input type="radio" id="tab5" name="tab-control">
 
   <div class="legal_title">
-    <h3>마약이 합법이 나라들</h3>
-  <strong>마약이 합법이 나라들에는 어떤 게 있을까?</strong>
+    <h3>마약이 합법인 나라들</h3>
+  <strong>마약이 합법인 나라들에는 어떤 게 있을까?</strong>
   <p>
-    마약이 합법화된 나라는 세계적으로는 매우 적습니다. 현재 마약의 합법화 정책 을 채택하고 있는 나라들은 대부분 의료용 마약이나 대마초를 제한적으로 허용하 고 있습니다. 이러한 나라들의 대표적인 예시를
-    아래에 나열해 보았습니다.
+    마약이 합법화된 나라는 세계적으로는 매우 적습니다. 현재 마약의 합법화 정책을 채택하고 있는 나라들은 대부분 의료용 마약이나 대마초를 제한적으로 허용하고 있습니다. 
+    이러한 나라들의 대표적인 예시를아래에 나열해 보았습니다.
   </p>
 
   </div>
@@ -322,25 +281,25 @@
         <h2>캐나다</h2>
         
         <img src="{% static 'img/flag_canada.jpg' %}" alt="canada" />
-        <p>2018년 캐나다는 대마초를 합법화했습니다. 대마초 사용이 금지된 곳도 있지만, 대부분의 지역에서는 대마초를 허용하고 있으며, 대마초를 구 매하는 것도 가능합니다.</p>
+        <p>2018년 캐나다는 대마초를 합법화했습니다. 그러나, 사용에는 제한이 있습니다. 예를 들어, 캐나다 법률은 18세 미만의 미성년자에게 대마초 사용을 금지하고 있으며, 공공장소에서의 대마초 사용 또한 금지됩니다.</p>
       </section>
         <section>
           <h2>독일</h2>
           <img src="{% static 'img/flag_germany.jpg' %}" alt="germany" />
-        <p>독일은 의학적 목적으로 대마초 사용을 허용하고 있습니다. 의사의 처 방을 받으면 대마초를 구매할 수 있으며, 일부 의료 보험도 이를 보장합니다.</p>
+        <p>독일은 의학적 목적으로 대마초 사용을 허용하고 있습니다. 의사의 처방을 받으면 대마초를 구매할 수 있으며, 일부 의료 보험도 이를 보장합니다.</p>
       </section>
 
       <section>
         <h2>이스라엘</h2>
          
           <img src="{% static 'img/flag_israel.jpg' %}" alt="israel" />
-        <p>이스라엘은 의학적 목적으로 대마초 사용을 허용하는 국가입니다. 이 지역에서는 대마초를 치료제나 약제로 사용할 수 있습니다.</p>
+        <p>이스라엘 역시 의학적 목적으로 대마초 사용을 허용하는 국가입니다. 이 지역에서는 대마초를 치료제나 약제로 사용할 수 있습니다.</p>
      </section>
      
   </div>
 
   <p class="warning">
-    이외에도 일부 국가에서는 대마초나 기타 마약의 의료용으로의 사용이 허용되고 있으나, 대부분은 엄격한 규제를 적용하고 있습니다. 합법화 여부는 국가별 법률 에 따라 다르므로, 항상 해당 국가의 법률을
+    이외에도 일부 국가에서는 대마초나 기타 마약의 의료용으로의 사용이 허용되고 있으나, 대부분은 엄격한 규제를 적용하고 있습니다. 합법화 여부는 국가별 법률에 따라 다르므로, 항상 해당 국가의 법률을
     확인하는 것이 중요합니다.
   </p>
 </div>

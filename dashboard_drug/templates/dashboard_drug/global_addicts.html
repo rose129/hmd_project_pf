@@ -16,7 +16,7 @@
   <script>
     const global_addicts_ctx = document.querySelector('#global_addicts_chart')
   
-    const global_addicts_labels = [{% for ga in global_addicts %} '{{ga.country}} / {{ga.num_drug_addicts}}만 명', {% endfor %}];
+    const global_addicts_labels = [{% for ga in global_addicts %} '{{ga.country}}: {{ga.num_drug_addicts}}만 명', {% endfor %}];
   
     const global_addicts_data = [
         { x: 31, y: 75, r: 30 },
@@ -81,7 +81,7 @@
                     position: 'right',
                     align: 'center',
                     labels: {
-                        usePointStyle: true,
+                        
                     },
                 },
             },

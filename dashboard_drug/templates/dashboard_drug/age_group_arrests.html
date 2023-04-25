@@ -8,7 +8,7 @@
 <script>
   const age_group_arrests_ctx = document.querySelector('#age_group_arrests_chart')
 
-  const age_group_arrests_labels = [{% for aga in age_group_arrests %} '{{aga.age_group}} / {{aga.num_age_arrested}}명', {% endfor %}];
+  const age_group_arrests_labels = [{% for aga in age_group_arrests %} '{{aga.age_group}}', {% endfor %}];
 
   const age_group_arrests_data = [{% for aga in age_group_arrests %} {{ aga.num_age_arrested }}, {% endfor %}];
 
@@ -17,7 +17,7 @@
       datasets: [
           {
               data: age_group_arrests_data,
-              label: "2022년 기준 연령대별 단속 내역",
+              label: "2022년 기준 연령대별 단속 내역 (단위: 명)",
               backgroundColor: [
                   "#95B1AEa3",
                   "#4C8D74a3",

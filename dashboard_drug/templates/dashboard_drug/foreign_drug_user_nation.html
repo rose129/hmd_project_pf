@@ -8,7 +8,7 @@
 <script>
   const foreign_drug_user_nation_ctx = document.querySelector('#foreign_drug_user_nation_chart')
 
-  const foreign_drug_user_nation_labels = [{% for fdun in foreign_drug_user_nation %} '{{fdun.country}} / {{fdun.num_drug_user}}명 ({{fdun.percent}}%)', {% endfor %}];
+  const foreign_drug_user_nation_labels = [{% for fdun in foreign_drug_user_nation %} '{{fdun.country}}: {{fdun.num_drug_user}}명({{fdun.percent}}%)', {% endfor %}];
 
   const foreign_drug_user_nation_data = [{% for fdun in foreign_drug_user_nation %} {{ fdun.num_drug_user }}, {% endfor %}];
 

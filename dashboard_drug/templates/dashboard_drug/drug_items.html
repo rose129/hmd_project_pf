@@ -8,7 +8,7 @@
 <script>
   const drug_items_ctx = document.querySelector('#drug_items_chart')
 
-  const drug_items_labels = [{% for di in drug_items %} '{{di.drug_items}} / {{di.drug_items_arrested}}g', {% endfor %}];
+  const drug_items_labels = [{% for di in drug_items %} '{{di.drug_items}}: {{di.drug_items_arrested}}g', {% endfor %}];
 
   const drug_items_data = [{% for di in drug_items %} {{ di.drug_items_arrested }}, {% endfor %}];
 
@@ -17,7 +17,7 @@
       datasets: [
           {
               data: drug_items_data,
-              label: "2022년 기준 마약류 품목별 단속 현황",
+              label: "2022년 기준 마약류 품목별 단속 현황 (단위: g)",
               backgroundColor: [
                 "#ED1630a3",
                 "#DCC1C3a3",
