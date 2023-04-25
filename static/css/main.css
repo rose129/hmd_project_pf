@@ -15,6 +15,14 @@ h1.title,
   font-weight: 900;
 }
 
+h1.title_con{
+  font-size: 7em;
+  color: white;
+}
+
+.valign-wrapper{
+  text-align: center;
+}
 /* start welcome animation */
 
 body{
