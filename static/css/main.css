@@ -3,9 +3,18 @@ body {
   min-height: 100vh;
   flex-direction: column;
 }
-
+header{
+  border-bottom: 1px solid black;
+}
+footer{
+  border-top: 1px solid black;
+}
 main {
   flex: 1 0 auto;
+  margin-top: 12%;
+}
+header{
+  font-size: 1.1em;
 }
 
 h1.title,
@@ -17,7 +26,8 @@ h1.title,
 
 h1.title_con{
   font-size: 7em;
-  color: white;
+  /* color: #fdc4a6; */
+  color: lightcoral;
 }
 
 .valign-wrapper{
@@ -26,7 +36,7 @@ h1.title_con{
 /* start welcome animation */
 
 body{
-  background: #ffd1b8;
+  background: #FFF4E0;
   overflow: hidden;
   -webkit-font-smoothing: antialiased;
 }

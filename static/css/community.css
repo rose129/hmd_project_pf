@@ -1,6 +1,9 @@
 body{
   background-color: #ffe6d1;
 }
+header{
+  font-size: 1.1em;
+}
 /* bg */
 .container{
   position: relative;

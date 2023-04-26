@@ -1,13 +1,25 @@
 body{
   background: #004a62;
 }
+header{
+  font-size: 1.1em;
+}
 nav a{
   color: #fdf8ef
 }
+
+.logo:hover a{
+  
+  color: lightcoral;
+}
+
 nav li:hover a{
   color: #ffeed1
 }
 
+.nav_side:hover a{
+  color: lightcoral;
+}
 
 #About{
   margin-top: 5%;

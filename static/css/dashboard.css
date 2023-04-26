@@ -2,6 +2,9 @@ body{
   background: #E8E5DE;
   overflow-x: hidden;
 }
+header{
+  font-size: 1.1em;
+}
 .container{
   margin: 0 auto;
 
